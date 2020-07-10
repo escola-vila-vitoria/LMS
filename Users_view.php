@@ -89,7 +89,7 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "Users_view.php";
 	$x->RedirectAfterInsert = "Users_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Users";
+	$x->TableTitle = "Alunos";
 	$x->TableIcon = "resources/table_icons/group.png";
 	$x->PrimaryKey = "`Users`.`id`";
 

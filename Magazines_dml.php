@@ -14,8 +14,8 @@ function Magazines_insert(){
 		return false;
 	}
 
-	$data['Type'] = makeSafe($_REQUEST['Type']);
-		if($data['Type'] == empty_lookup_value){ $data['Type'] = ''; }
+	$data['Gênero_da_Revista'] = makeSafe($_REQUEST['Gênero_da_Revista']);
+		if($data['Gênero_da_Revista'] == empty_lookup_value){ $data['Gênero_da_Revista'] = ''; }
 	$data['Name'] = makeSafe($_REQUEST['Name']);
 		if($data['Name'] == empty_lookup_value){ $data['Name'] = ''; }
 	$data['Date_Of_Receipt'] = intval($_REQUEST['Date_Of_ReceiptYear']) . '-' . intval($_REQUEST['Date_Of_ReceiptMonth']) . '-' . intval($_REQUEST['Date_Of_ReceiptDay']);
@@ -37,7 +37,10 @@ function Magazines_insert(){
 	}
 
 	$o = array('silentErrors' => true);
-	sql('insert into `Magazines` set       `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL'), $o);
+	sql('insert into `Magazines` set
+
+	`Gênero_da_Revista`=' . (($data['Gênero_da_Revista'] !== '' && $data['Gênero_da_Revista'] !== NULL) ? "'{$data['Gênero_da_Revista']}'" : 'NULL') . ',
+	`Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"Magazines_view.php?addNew_x=1\">{$Translation['< back']}</a>";

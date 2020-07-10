@@ -21,9 +21,9 @@
 	$x->TableName = "Magazines";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`Magazines`.`id`" => "id",
-		"`Magazines`.`Type`" => "Type",
+		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
 		"`Magazines`.`Name`" => "Name",
 		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
 		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
@@ -32,7 +32,7 @@
 		"`Magazines`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`Magazines`.`id`',
 		2 => 2,
 		3 => 3,
@@ -44,9 +44,9 @@
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`Magazines`.`id`" => "id",
-		"`Magazines`.`Type`" => "Type",
+		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
 		"`Magazines`.`Name`" => "Name",
 		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
 		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
@@ -55,9 +55,9 @@
 		"`Magazines`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`Magazines`.`id`" => "ID",
-		"`Magazines`.`Type`" => "Type",
+		"`Magazines`.`Gênero_da_Revista`" => "Gênero da Revista",
 		"`Magazines`.`Name`" => "Name",
 		"`Magazines`.`Date_Of_Receipt`" => "Date Of Receipt",
 		"`Magazines`.`Date_Published`" => "Date Published",
@@ -67,9 +67,9 @@
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`Magazines`.`id`" => "id",
-		"`Magazines`.`Type`" => "Type",
+		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
 		"`Magazines`.`Name`" => "Name",
 		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
 		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
@@ -104,13 +104,13 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "Magazines_view.php";
 	$x->RedirectAfterInsert = "Magazines_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Magazines";
+	$x->TableTitle = "Revistas";
 	$x->TableIcon = "resources/table_icons/blogs.png";
 	$x->PrimaryKey = "`Magazines`.`id`";
 
-	$x->ColWidth   = array(  150, 150, 150, 150, 150, 80, 150);
-	$x->ColCaption = array("Type", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Editora");
-	$x->ColFieldName = array('Type', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Editora');
+	$x->ColWidth   = array(150, 150, 150, 150, 150, 80, 150);
+	$x->ColCaption = array("Gênero da Revista", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Editora");
+	$x->ColFieldName = array('Gênero_da_Revista', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Editora');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8);
 
 	// template paths below are based on the app main directory
@@ -156,9 +156,9 @@
 	if(function_exists('Magazines_header')){
 		$args=array();
 		$headerCode=Magazines_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -170,9 +170,9 @@
 	if(function_exists('Magazines_footer')){
 		$args=array();
 		$footerCode=Magazines_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

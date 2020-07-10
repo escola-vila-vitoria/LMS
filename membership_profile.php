@@ -66,7 +66,7 @@
 		if(strlen($newPassword) < 4){
 			echo "{$Translation['error:']} {$Translation['password invalid']}";
 			echo "<script>$$('label[for=\"new-password\"]')[0].pulsate({ pulses: 10, duration: 4 }); $('new-password').activate();</script>";
-			exit;      
+			exit;
 		}
 
 		/* update password */
@@ -83,8 +83,8 @@
 	}
 
 	/* get profile info */
-	/* 
-		$mi already contains the profile info, as documented at: 
+	/*
+		$mi already contains the profile info, as documented at:
 		https://bigprof.com/appgini/help/working-with-generated-web-database-application/hooks/memberInfo
 
 		custom field names are stored in $adminConfig['custom1'] to $adminConfig['custom4']
@@ -140,81 +140,9 @@
 				</div>
 			</div>
 
-			<!-- access permissions -->
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-						<i class="glyphicon glyphicon-lock"></i>
-						<?php echo $Translation['Your access permissions']; ?>
-					</h3>
-				</div>
-				<div class="panel-body">
-					<p><strong><?php echo $Translation['Legend']; ?></strong></p>
-					<div class="row">
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/stop_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['Not allowed']; ?></div>
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/member_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['Only your own records']; ?></div>
-					</div>
-					<div class="row">
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/members_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['All records owned by your group']; ?></div>
-						<div class="col-xs-2 col-md-1 text-right"><img src="admin/images/approve_icon.gif"></div>
-						<div class="col-xs-10 col-md-5"><?php echo $Translation['All records']; ?></div>
-					</div>
-
-					<p class="vspacer-lg"></p>
-
-					<div class="table-responsive">
-						<table class="table table-striped table-hover table-bordered" id="permissions">
-							<thead>
-								<tr>
-									<th><?php echo $Translation['Table']; ?></th>
-									<th class="text-center"><?php echo $Translation['View']; ?></th>
-									<th class="text-center"><?php echo $Translation['Add New']; ?></th>
-									<th class="text-center"><?php echo $Translation['Edit']; ?></th>
-									<th class="text-center"><?php echo $Translation['Delete']; ?></th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($permissions as $tn => $perm){ ?>
-									<tr>
-										<td><img src="<?php echo $userTables[$tn][2]; ?>"> <a href="<?php echo $tn; ?>_view.php"><?php echo $userTables[$tn][0]; ?></a></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[2]); ?>" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo ($perm[1] ? 'approve' : 'stop'); ?>_icon.gif" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[3]); ?>" /></td>
-										<td class="text-center"><img src="admin/images/<?php echo permIcon($perm[4]); ?>" /></td>
-									</tr>
-								<?php } ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-
 		</div>
 
 		<div class="col-md-6">
-
-			<!-- group and IP address -->
-			<div class="panel panel-info">
-				<div class="panel-body">
-					<div class="form-group">
-						<label><?php echo $Translation['Your IP address']; ?></label>
-						<div class="form-control-static"><?php echo $mi['IP']; ?></div>
-					</div>
-				</div>
-			</div>
-
-			<!-- group and IP address -->
-			<div class="panel panel-info">
-				<div class="panel-body">
-					<div class="form-group">
-						<label><?php echo $Translation['group']; ?></label>
-						<div class="form-control-static"><?php echo $mi['group']; ?></div>
-					</div>
-				</div>
-			</div>
 
 			<?php if($mi['username'] != $adminConfig['adminUsername']){ ?>
 				<!-- change password -->
@@ -276,7 +204,7 @@
 				post2(
 					'<?php echo basename(__FILE__); ?>',
 					{ action: 'saveProfile', email: $F('email'), custom1: $F('custom1'), custom2: $F('custom2'), custom3: $F('custom3'), custom4: $F('custom4'), csrf_token: $F('csrf_token') },
-					'notify', 'profile', 'loader', 
+					'notify', 'profile', 'loader',
 					'<?php echo basename(__FILE__); ?>?notify=<?php echo urlencode($Translation['Your profile was updated successfully']); ?>'
 				);
 			});
@@ -295,7 +223,7 @@
 					post2(
 						'<?php echo basename(__FILE__); ?>',
 						{ action: 'changePassword', oldPassword: $F('old-password'), newPassword: $F('new-password'), csrf_token: $F('csrf_token') },
-						'notify', 'password-change-form', 'loader', 
+						'notify', 'password-change-form', 'loader',
 						'<?php echo basename(__FILE__); ?>?notify=<?php echo urlencode($Translation['Your password was changed successfully']); ?>'
 					);
 				});
