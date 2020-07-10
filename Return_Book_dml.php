@@ -16,8 +16,8 @@ function Return_Book_insert(){
 
 	$data['Book_Number'] = makeSafe($_REQUEST['Book_Number']);
 		if($data['Book_Number'] == empty_lookup_value){ $data['Book_Number'] = ''; }
-	$data['Book_Title'] = makeSafe($_REQUEST['Book_Number']);
-		if($data['Book_Title'] == empty_lookup_value){ $data['Book_Title'] = ''; }
+	$data['Titulo_do_Livro'] = makeSafe($_REQUEST['Book_Number']);
+		if($data['Titulo_do_Livro'] == empty_lookup_value){ $data['Titulo_do_Livro'] = ''; }
 	$data['Issue_Date'] = makeSafe($_REQUEST['Book_Number']);
 		if($data['Issue_Date'] == empty_lookup_value){ $data['Issue_Date'] = ''; }
 	$data['Due_Date'] = makeSafe($_REQUEST['Book_Number']);
@@ -43,7 +43,7 @@ function Return_Book_insert(){
 	}
 
 	$o = array('silentErrors' => true);
-	sql('insert into `Return_Book` set       `Book_Number`=' . (($data['Book_Number'] !== '' && $data['Book_Number'] !== NULL) ? "'{$data['Book_Number']}'" : 'NULL') . ', `Book_Title`=' . (($data['Book_Title'] !== '' && $data['Book_Title'] !== NULL) ? "'{$data['Book_Title']}'" : 'NULL') . ', `Issue_Date`=' . (($data['Issue_Date'] !== '' && $data['Issue_Date'] !== NULL) ? "'{$data['Issue_Date']}'" : 'NULL') . ', `Due_Date`=' . (($data['Due_Date'] !== '' && $data['Due_Date'] !== NULL) ? "'{$data['Due_Date']}'" : 'NULL') . ', `Return_Date`=' . (($data['Return_Date'] !== '' && $data['Return_Date'] !== NULL) ? "'{$data['Return_Date']}'" : 'NULL') . ', `Member`=' . (($data['Member'] !== '' && $data['Member'] !== NULL) ? "'{$data['Member']}'" : 'NULL') . ', `Number`=' . (($data['Number'] !== '' && $data['Number'] !== NULL) ? "'{$data['Number']}'" : 'NULL') . ', `Fine`=' . (($data['Fine'] !== '' && $data['Fine'] !== NULL) ? "'{$data['Fine']}'" : 'NULL') . ', `Status`=' . (($data['Status'] !== '' && $data['Status'] !== NULL) ? "'{$data['Status']}'" : 'NULL'), $o);
+	sql('insert into `Return_Book` set       `Book_Number`=' . (($data['Book_Number'] !== '' && $data['Book_Number'] !== NULL) ? "'{$data['Book_Number']}'" : 'NULL') . ', `Titulo_do_Livro`=' . (($data['Titulo_do_Livro'] !== '' && $data['Titulo_do_Livro'] !== NULL) ? "'{$data['Titulo_do_Livro']}'" : 'NULL') . ', `Issue_Date`=' . (($data['Issue_Date'] !== '' && $data['Issue_Date'] !== NULL) ? "'{$data['Issue_Date']}'" : 'NULL') . ', `Due_Date`=' . (($data['Due_Date'] !== '' && $data['Due_Date'] !== NULL) ? "'{$data['Due_Date']}'" : 'NULL') . ', `Return_Date`=' . (($data['Return_Date'] !== '' && $data['Return_Date'] !== NULL) ? "'{$data['Return_Date']}'" : 'NULL') . ', `Member`=' . (($data['Member'] !== '' && $data['Member'] !== NULL) ? "'{$data['Member']}'" : 'NULL') . ', `Number`=' . (($data['Number'] !== '' && $data['Number'] !== NULL) ? "'{$data['Number']}'" : 'NULL') . ', `Fine`=' . (($data['Fine'] !== '' && $data['Fine'] !== NULL) ? "'{$data['Fine']}'" : 'NULL') . ', `Status`=' . (($data['Status'] !== '' && $data['Status'] !== NULL) ? "'{$data['Status']}'" : 'NULL'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"Return_Book_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -118,8 +118,8 @@ function Return_Book_update($selected_id){
 
 	$data['Book_Number'] = makeSafe($_REQUEST['Book_Number']);
 		if($data['Book_Number'] == empty_lookup_value){ $data['Book_Number'] = ''; }
-	$data['Book_Title'] = makeSafe($_REQUEST['Book_Number']);
-		if($data['Book_Title'] == empty_lookup_value){ $data['Book_Title'] = ''; }
+	$data['Titulo_do_Livro'] = makeSafe($_REQUEST['Book_Number']);
+		if($data['Titulo_do_Livro'] == empty_lookup_value){ $data['Titulo_do_Livro'] = ''; }
 	$data['Issue_Date'] = makeSafe($_REQUEST['Book_Number']);
 		if($data['Issue_Date'] == empty_lookup_value){ $data['Issue_Date'] = ''; }
 	$data['Due_Date'] = makeSafe($_REQUEST['Book_Number']);
@@ -143,7 +143,7 @@ function Return_Book_update($selected_id){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('update `Return_Book` set       `Book_Number`=' . (($data['Book_Number'] !== '' && $data['Book_Number'] !== NULL) ? "'{$data['Book_Number']}'" : 'NULL') . ', `Book_Title`=' . (($data['Book_Title'] !== '' && $data['Book_Title'] !== NULL) ? "'{$data['Book_Title']}'" : 'NULL') . ', `Issue_Date`=' . (($data['Issue_Date'] !== '' && $data['Issue_Date'] !== NULL) ? "'{$data['Issue_Date']}'" : 'NULL') . ', `Due_Date`=' . (($data['Due_Date'] !== '' && $data['Due_Date'] !== NULL) ? "'{$data['Due_Date']}'" : 'NULL') . ', `Return_Date`=' . (($data['Return_Date'] !== '' && $data['Return_Date'] !== NULL) ? "'{$data['Return_Date']}'" : 'NULL') . ', `Member`=' . (($data['Member'] !== '' && $data['Member'] !== NULL) ? "'{$data['Member']}'" : 'NULL') . ', `Number`=' . (($data['Number'] !== '' && $data['Number'] !== NULL) ? "'{$data['Number']}'" : 'NULL') . ', `Fine`=' . (($data['Fine'] !== '' && $data['Fine'] !== NULL) ? "'{$data['Fine']}'" : 'NULL') . ', `Status`=' . (($data['Status'] !== '' && $data['Status'] !== NULL) ? "'{$data['Status']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `Return_Book` set       `Book_Number`=' . (($data['Book_Number'] !== '' && $data['Book_Number'] !== NULL) ? "'{$data['Book_Number']}'" : 'NULL') . ', `Titulo_do_Livro`=' . (($data['Titulo_do_Livro'] !== '' && $data['Titulo_do_Livro'] !== NULL) ? "'{$data['Titulo_do_Livro']}'" : 'NULL') . ', `Issue_Date`=' . (($data['Issue_Date'] !== '' && $data['Issue_Date'] !== NULL) ? "'{$data['Issue_Date']}'" : 'NULL') . ', `Due_Date`=' . (($data['Due_Date'] !== '' && $data['Due_Date'] !== NULL) ? "'{$data['Due_Date']}'" : 'NULL') . ', `Return_Date`=' . (($data['Return_Date'] !== '' && $data['Return_Date'] !== NULL) ? "'{$data['Return_Date']}'" : 'NULL') . ', `Member`=' . (($data['Member'] !== '' && $data['Member'] !== NULL) ? "'{$data['Member']}'" : 'NULL') . ', `Number`=' . (($data['Number'] !== '' && $data['Number'] !== NULL) ? "'{$data['Number']}'" : 'NULL') . ', `Fine`=' . (($data['Fine'] !== '' && $data['Fine'] !== NULL) ? "'{$data['Fine']}'" : 'NULL') . ', `Status`=' . (($data['Status'] !== '' && $data['Status'] !== NULL) ? "'{$data['Status']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo '<a href="Return_Book_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -550,8 +550,8 @@ function Return_Book_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1,
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Book_Number)%%>', safe_html($urow['Book_Number']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Book_Number)%%>', html_attr($row['Book_Number']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Book_Number)%%>', urlencode($urow['Book_Number']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Return_Date)%%>', @date('m/d/Y', @strtotime(html_attr($row['Return_Date']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Return_Date)%%>', urlencode(@date('m/d/Y', @strtotime(html_attr($urow['Return_Date'])))), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Return_Date)%%>', @date('d/m/Y', @strtotime(html_attr($row['Return_Date']))), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Return_Date)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Return_Date'])))), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Member)%%>', safe_html($urow['Member']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Member)%%>', html_attr($row['Member']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Member)%%>', urlencode($urow['Member']), $templateCode);

@@ -7,7 +7,7 @@
 
 		$pcConfig = array(
 			'books' => array(   
-				'Book_Type' => array(   
+				'Gênero_do_Livro' => array(   
 					'parent-table' => 'Types',
 					'parent-primary-key' => 'id',
 					'child-primary-key' => 'id',
@@ -18,9 +18,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(1 => 'ISBN NO', 2 => 'Book Title', 3 => 'Book Type', 4 => 'Author Name', 5 => 'Quantity', 6 => 'Purchase Date', 7 => 'Edition', 8 => 'Price', 9 => 'Pages', 10 => 'Publisher'),
-					'display-field-names' => array(1 => 'ISBN_NO', 2 => 'Book_Title', 3 => 'Book_Type', 4 => 'Author_Name', 5 => 'Quantity', 6 => 'Purchase_Date', 7 => 'Edition', 8 => 'Price', 9 => 'Pages', 10 => 'Publisher'),
-					'sortable-fields' => array(0 => '`books`.`id`', 1 => '`books`.`ISBN_NO`', 2 => '`books`.`Book_Title`', 3 => '`books`.`Book_Type`', 4 => '`books`.`Author_Name`', 5 => '`books`.`Quantity`', 6 => '`books`.`Purchase_Date`', 7 => '`books`.`Edition`', 8 => '`books`.`Price`', 9 => '`books`.`Pages`', 10 => '`books`.`Publisher`'),
+					'display-fields' => array(1 => 'ISBN', 2 => 'Titulo do Livro', 3 => 'Gênero do Livro', 4 => 'Autor do Livro', 5 => 'Quantidade', 6 => 'Data de Aquisição', 7 => 'Edição', 8 => 'Estante', 9 => 'Prateleira', 10 => 'Editora'),
+					'display-field-names' => array(1 => 'ISBN', 2 => 'Titulo_do_Livro', 3 => 'Gênero_do_Livro', 4 => 'Autor_do_Livro', 5 => 'Quantidade', 6 => 'Data_de_Aquisição', 7 => 'Edição', 8 => 'Estante', 9 => 'Prateleira', 10 => 'Editora'),
+					'sortable-fields' => array(0 => '`books`.`id`', 1 => '`books`.`ISBN`', 2 => '`books`.`Titulo_do_Livro`', 3 => '`books`.`Gênero_do_Livro`', 4 => '`books`.`Autor_do_Livro`', 5 => '`books`.`Quantidade`', 6 => '`books`.`Data_de_Aquisição`', 7 => '`books`.`Edição`', 8 => '`books`.`Estante`', 9 => '`books`.`Prateleira`', 10 => '`books`.`Editora`'),
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -29,7 +29,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-books',
 					'template-printable' => 'children-books-printable',
-					'query' => "SELECT `books`.`id` as 'id', `books`.`ISBN_NO` as 'ISBN_NO', `books`.`Book_Title` as 'Book_Title', IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') as 'Book_Type', `books`.`Author_Name` as 'Author_Name', `books`.`Quantity` as 'Quantity', if(`books`.`Purchase_Date`,date_format(`books`.`Purchase_Date`,'%m/%d/%Y'),'') as 'Purchase_Date', `books`.`Edition` as 'Edition', `books`.`Price` as 'Price', `books`.`Pages` as 'Pages', `books`.`Publisher` as 'Publisher' FROM `books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Book_Type` "
+					'query' => "SELECT `books`.`id` as 'id', `books`.`ISBN` as 'ISBN', `books`.`Titulo_do_Livro` as 'Titulo_do_Livro', IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') as 'Gênero_do_Livro', `books`.`Autor_do_Livro` as 'Autor_do_Livro', `books`.`Quantidade` as 'Quantidade', if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'') as 'Data_de_Aquisição', `books`.`Edição` as 'Edição', `books`.`Estante` as 'Estante', `books`.`Prateleira` as 'Prateleira', `books`.`Editora` as 'Editora' FROM `books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Gênero_do_Livro` "
 				)
 			),
 			'NewsPapers' => array(   
@@ -50,9 +50,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(1 => 'Issue id', 2 => 'Member', 3 => 'Number', 4 => 'Book Number', 5 => 'Book Title', 6 => 'Issue Date', 7 => 'Return Date', 8 => 'Status'),
-					'display-field-names' => array(1 => 'issue_id', 2 => 'Member', 3 => 'Number', 4 => 'Book_Number', 5 => 'Book_Title', 6 => 'Issue_Date', 7 => 'Return_Date', 8 => 'Status'),
-					'sortable-fields' => array(0 => '`Book_Issue`.`id`', 1 => '`Book_Issue`.`issue_id`', 2 => '`Book_Issue`.`Member`', 3 => '`Book_Issue`.`Number`', 4 => '`Book_Issue`.`Book_Number`', 5 => '`Book_Issue`.`Book_Title`', 6 => '`Book_Issue`.`Issue_Date`', 7 => '`Book_Issue`.`Return_Date`', 8 => '`Book_Issue`.`Status`'),
+					'display-fields' => array(1 => 'Issue id', 2 => 'Member', 3 => 'Number', 4 => 'Book Number', 5 => 'Titulo do Livro', 6 => 'Issue Date', 7 => 'Return Date', 8 => 'Status'),
+					'display-field-names' => array(1 => 'issue_id', 2 => 'Member', 3 => 'Number', 4 => 'Book_Number', 5 => 'Titulo_do_Livro', 6 => 'Issue_Date', 7 => 'Return_Date', 8 => 'Status'),
+					'sortable-fields' => array(0 => '`Book_Issue`.`id`', 1 => '`Book_Issue`.`issue_id`', 2 => '`Book_Issue`.`Member`', 3 => '`Book_Issue`.`Number`', 4 => '`Book_Issue`.`Book_Number`', 5 => '`Book_Issue`.`Titulo_do_Livro`', 6 => '`Book_Issue`.`Issue_Date`', 7 => '`Book_Issue`.`Return_Date`', 8 => '`Book_Issue`.`Status`'),
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -61,7 +61,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-Book_Issue',
 					'template-printable' => 'children-Book_Issue-printable',
-					'query' => "SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') as 'Book_Title', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` "
+					'query' => "SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` "
 				),
 				'Book_Number' => array(   
 					'parent-table' => 'books',
@@ -74,9 +74,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(1 => 'Issue id', 2 => 'Member', 3 => 'Number', 4 => 'Book Number', 5 => 'Book Title', 6 => 'Issue Date', 7 => 'Return Date', 8 => 'Status'),
-					'display-field-names' => array(1 => 'issue_id', 2 => 'Member', 3 => 'Number', 4 => 'Book_Number', 5 => 'Book_Title', 6 => 'Issue_Date', 7 => 'Return_Date', 8 => 'Status'),
-					'sortable-fields' => array(0 => '`Book_Issue`.`id`', 1 => '`Book_Issue`.`issue_id`', 2 => '`Book_Issue`.`Member`', 3 => '`Book_Issue`.`Number`', 4 => '`Book_Issue`.`Book_Number`', 5 => '`Book_Issue`.`Book_Title`', 6 => '`Book_Issue`.`Issue_Date`', 7 => '`Book_Issue`.`Return_Date`', 8 => '`Book_Issue`.`Status`'),
+					'display-fields' => array(1 => 'Issue id', 2 => 'Member', 3 => 'Number', 4 => 'Book Number', 5 => 'Titulo do Livro', 6 => 'Issue Date', 7 => 'Return Date', 8 => 'Status'),
+					'display-field-names' => array(1 => 'issue_id', 2 => 'Member', 3 => 'Number', 4 => 'Book_Number', 5 => 'Titulo_do_Livro', 6 => 'Issue_Date', 7 => 'Return_Date', 8 => 'Status'),
+					'sortable-fields' => array(0 => '`Book_Issue`.`id`', 1 => '`Book_Issue`.`issue_id`', 2 => '`Book_Issue`.`Member`', 3 => '`Book_Issue`.`Number`', 4 => '`Book_Issue`.`Book_Number`', 5 => '`Book_Issue`.`Titulo_do_Livro`', 6 => '`Book_Issue`.`Issue_Date`', 7 => '`Book_Issue`.`Return_Date`', 8 => '`Book_Issue`.`Status`'),
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -85,7 +85,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-Book_Issue',
 					'template-printable' => 'children-Book_Issue-printable',
-					'query' => "SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') as 'Book_Title', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` "
+					'query' => "SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` "
 				)
 			),
 			'Return_Book' => array(   
@@ -100,9 +100,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(1 => 'Book Number', 2 => 'Book Title', 3 => 'Issue Date', 4 => 'Due Date', 5 => 'Return Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
-					'display-field-names' => array(1 => 'Book_Number', 2 => 'Book_Title', 3 => 'Issue_Date', 4 => 'Due_Date', 5 => 'Return_Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
-					'sortable-fields' => array(0 => '`Return_Book`.`id`', 1 => '`Return_Book`.`Book_Number`', 2 => '`Return_Book`.`Book_Title`', 3 => '`Return_Book`.`Issue_Date`', 4 => '`Return_Book`.`Due_Date`', 5 => '`Return_Book`.`Return_Date`', 6 => '`Return_Book`.`Member`', 7 => '`Return_Book`.`Number`', 8 => '`Return_Book`.`Fine`', 9 => '`Return_Book`.`Status`'),
+					'display-fields' => array(1 => 'Book Number', 2 => 'Titulo do Livro', 3 => 'Issue Date', 4 => 'Due Date', 5 => 'Return Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
+					'display-field-names' => array(1 => 'Book_Number', 2 => 'Titulo_do_Livro', 3 => 'Issue_Date', 4 => 'Due_Date', 5 => 'Return_Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
+					'sortable-fields' => array(0 => '`Return_Book`.`id`', 1 => '`Return_Book`.`Book_Number`', 2 => '`Return_Book`.`Titulo_do_Livro`', 3 => '`Return_Book`.`Issue_Date`', 4 => '`Return_Book`.`Due_Date`', 5 => '`Return_Book`.`Return_Date`', 6 => '`Return_Book`.`Member`', 7 => '`Return_Book`.`Number`', 8 => '`Return_Book`.`Fine`', 9 => '`Return_Book`.`Status`'),
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -111,7 +111,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-Return_Book',
 					'template-printable' => 'children-Return_Book-printable',
-					'query' => "SELECT `Return_Book`.`id` as 'id', IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') as 'Book_Title', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%m/%d/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%m/%d/%Y'),'')), '') as 'Issue_Date', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%m/%d/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%m/%d/%Y'),'')), '') as 'Due_Date', if(`Return_Book`.`Return_Date`,date_format(`Return_Book`.`Return_Date`,'%m/%d/%Y'),'') as 'Return_Date', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') as 'Number', `Return_Book`.`Fine` as 'Fine', `Return_Book`.`Status` as 'Status' FROM `Return_Book` LEFT JOIN `Book_Issue` as Book_Issue1 ON `Book_Issue1`.`id`=`Return_Book`.`Book_Number` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue1`.`Book_Number` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Return_Book`.`Member` "
+					'query' => "SELECT `Return_Book`.`id` as 'id', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), '') as 'Issue_Date', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), '') as 'Due_Date', if(`Return_Book`.`Return_Date`,date_format(`Return_Book`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', `Return_Book`.`Fine` as 'Fine', `Return_Book`.`Status` as 'Status' FROM `Return_Book` LEFT JOIN `Book_Issue` as Book_Issue1 ON `Book_Issue1`.`id`=`Return_Book`.`Book_Number` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue1`.`Book_Number` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Return_Book`.`Member` "
 				),
 				'Member' => array(   
 					'parent-table' => 'Users',
@@ -124,9 +124,9 @@
 					'display-refresh' => true,
 					'display-add-new' => true,
 					'forced-where' => '',
-					'display-fields' => array(1 => 'Book Number', 2 => 'Book Title', 3 => 'Issue Date', 4 => 'Due Date', 5 => 'Return Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
-					'display-field-names' => array(1 => 'Book_Number', 2 => 'Book_Title', 3 => 'Issue_Date', 4 => 'Due_Date', 5 => 'Return_Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
-					'sortable-fields' => array(0 => '`Return_Book`.`id`', 1 => '`Return_Book`.`Book_Number`', 2 => '`Return_Book`.`Book_Title`', 3 => '`Return_Book`.`Issue_Date`', 4 => '`Return_Book`.`Due_Date`', 5 => '`Return_Book`.`Return_Date`', 6 => '`Return_Book`.`Member`', 7 => '`Return_Book`.`Number`', 8 => '`Return_Book`.`Fine`', 9 => '`Return_Book`.`Status`'),
+					'display-fields' => array(1 => 'Book Number', 2 => 'Titulo do Livro', 3 => 'Issue Date', 4 => 'Due Date', 5 => 'Return Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
+					'display-field-names' => array(1 => 'Book_Number', 2 => 'Titulo_do_Livro', 3 => 'Issue_Date', 4 => 'Due_Date', 5 => 'Return_Date', 6 => 'Member', 7 => 'Number', 8 => 'Fine', 9 => 'Status'),
+					'sortable-fields' => array(0 => '`Return_Book`.`id`', 1 => '`Return_Book`.`Book_Number`', 2 => '`Return_Book`.`Titulo_do_Livro`', 3 => '`Return_Book`.`Issue_Date`', 4 => '`Return_Book`.`Due_Date`', 5 => '`Return_Book`.`Return_Date`', 6 => '`Return_Book`.`Member`', 7 => '`Return_Book`.`Number`', 8 => '`Return_Book`.`Fine`', 9 => '`Return_Book`.`Status`'),
 					'records-per-page' => 10,
 					'default-sort-by' => false,
 					'default-sort-direction' => 'asc',
@@ -135,7 +135,7 @@
 					'show-page-progress' => true,
 					'template' => 'children-Return_Book',
 					'template-printable' => 'children-Return_Book-printable',
-					'query' => "SELECT `Return_Book`.`id` as 'id', IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') as 'Book_Title', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%m/%d/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%m/%d/%Y'),'')), '') as 'Issue_Date', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%m/%d/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%m/%d/%Y'),'')), '') as 'Due_Date', if(`Return_Book`.`Return_Date`,date_format(`Return_Book`.`Return_Date`,'%m/%d/%Y'),'') as 'Return_Date', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') as 'Number', `Return_Book`.`Fine` as 'Fine', `Return_Book`.`Status` as 'Status' FROM `Return_Book` LEFT JOIN `Book_Issue` as Book_Issue1 ON `Book_Issue1`.`id`=`Return_Book`.`Book_Number` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue1`.`Book_Number` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Return_Book`.`Member` "
+					'query' => "SELECT `Return_Book`.`id` as 'id', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), '') as 'Issue_Date', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), '') as 'Due_Date', if(`Return_Book`.`Return_Date`,date_format(`Return_Book`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', `Return_Book`.`Fine` as 'Fine', `Return_Book`.`Status` as 'Status' FROM `Return_Book` LEFT JOIN `Book_Issue` as Book_Issue1 ON `Book_Issue1`.`id`=`Return_Book`.`Book_Number` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue1`.`Book_Number` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Return_Book`.`Member` "
 				)
 			),
 			'Types' => array(   

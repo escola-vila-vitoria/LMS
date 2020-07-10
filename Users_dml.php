@@ -14,14 +14,14 @@ function Users_insert(){
 		return false;
 	}
 
-	$data['Membership_Number'] = makeSafe($_REQUEST['Membership_Number']);
-		if($data['Membership_Number'] == empty_lookup_value){ $data['Membership_Number'] = ''; }
+	$data['RA_do_Aluno'] = makeSafe($_REQUEST['RA_do_Aluno']);
+		if($data['RA_do_Aluno'] == empty_lookup_value){ $data['RA_do_Aluno'] = ''; }
 	$data['Name'] = makeSafe($_REQUEST['Name']);
 		if($data['Name'] == empty_lookup_value){ $data['Name'] = ''; }
-	$data['Contact'] = makeSafe($_REQUEST['Contact']);
-		if($data['Contact'] == empty_lookup_value){ $data['Contact'] = ''; }
-	$data['ID_Number'] = makeSafe($_REQUEST['ID_Number']);
-		if($data['ID_Number'] == empty_lookup_value){ $data['ID_Number'] = ''; }
+	$data['Contato'] = makeSafe($_REQUEST['Contato']);
+		if($data['Contato'] == empty_lookup_value){ $data['Contato'] = ''; }
+	$data['Ano'] = makeSafe($_REQUEST['Ano']);
+		if($data['Ano'] == empty_lookup_value){ $data['Ano'] = ''; }
 
 	// hook: Users_before_insert
 	if(function_exists('Users_before_insert')){
@@ -30,7 +30,7 @@ function Users_insert(){
 	}
 
 	$o = array('silentErrors' => true);
-	sql('insert into `Users` set       `Membership_Number`=' . (($data['Membership_Number'] !== '' && $data['Membership_Number'] !== NULL) ? "'{$data['Membership_Number']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Contact`=' . (($data['Contact'] !== '' && $data['Contact'] !== NULL) ? "'{$data['Contact']}'" : 'NULL') . ', `ID_Number`=' . (($data['ID_Number'] !== '' && $data['ID_Number'] !== NULL) ? "'{$data['ID_Number']}'" : 'NULL'), $o);
+	sql('insert into `Users` set       `RA_do_Aluno`=' . (($data['RA_do_Aluno'] !== '' && $data['RA_do_Aluno'] !== NULL) ? "'{$data['RA_do_Aluno']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Contato`=' . (($data['Contato'] !== '' && $data['Contato'] !== NULL) ? "'{$data['Contato']}'" : 'NULL') . ', `Ano`=' . (($data['Ano'] !== '' && $data['Ano'] !== NULL) ? "'{$data['Ano']}'" : 'NULL'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"Users_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -141,14 +141,14 @@ function Users_update($selected_id){
 		return false;
 	}
 
-	$data['Membership_Number'] = makeSafe($_REQUEST['Membership_Number']);
-		if($data['Membership_Number'] == empty_lookup_value){ $data['Membership_Number'] = ''; }
+	$data['RA_do_Aluno'] = makeSafe($_REQUEST['RA_do_Aluno']);
+		if($data['RA_do_Aluno'] == empty_lookup_value){ $data['RA_do_Aluno'] = ''; }
 	$data['Name'] = makeSafe($_REQUEST['Name']);
 		if($data['Name'] == empty_lookup_value){ $data['Name'] = ''; }
-	$data['Contact'] = makeSafe($_REQUEST['Contact']);
-		if($data['Contact'] == empty_lookup_value){ $data['Contact'] = ''; }
-	$data['ID_Number'] = makeSafe($_REQUEST['ID_Number']);
-		if($data['ID_Number'] == empty_lookup_value){ $data['ID_Number'] = ''; }
+	$data['Contato'] = makeSafe($_REQUEST['Contato']);
+		if($data['Contato'] == empty_lookup_value){ $data['Contato'] = ''; }
+	$data['Ano'] = makeSafe($_REQUEST['Ano']);
+		if($data['Ano'] == empty_lookup_value){ $data['Ano'] = ''; }
 	$data['selectedID']=makeSafe($selected_id);
 
 	// hook: Users_before_update
@@ -158,7 +158,7 @@ function Users_update($selected_id){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('update `Users` set       `Membership_Number`=' . (($data['Membership_Number'] !== '' && $data['Membership_Number'] !== NULL) ? "'{$data['Membership_Number']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Contact`=' . (($data['Contact'] !== '' && $data['Contact'] !== NULL) ? "'{$data['Contact']}'" : 'NULL') . ', `ID_Number`=' . (($data['ID_Number'] !== '' && $data['ID_Number'] !== NULL) ? "'{$data['ID_Number']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `Users` set       `RA_do_Aluno`=' . (($data['RA_do_Aluno'] !== '' && $data['RA_do_Aluno'] !== NULL) ? "'{$data['RA_do_Aluno']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Contato`=' . (($data['Contato'] !== '' && $data['Contato'] !== NULL) ? "'{$data['Contato']}'" : 'NULL') . ', `Ano`=' . (($data['Ano'] !== '' && $data['Ano'] !== NULL) ? "'{$data['Ano']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo '<a href="Users_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -306,10 +306,10 @@ function Users_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 
 	// set records to read only if user can't insert new records and can't edit current record
 	if(($selected_id && !$AllowUpdate && !$AllowInsert) || (!$selected_id && !$AllowInsert)){
-		$jsReadOnly .= "\tjQuery('#Membership_Number').replaceWith('<div class=\"form-control-static\" id=\"Membership_Number\">' + (jQuery('#Membership_Number').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#RA_do_Aluno').replaceWith('<div class=\"form-control-static\" id=\"RA_do_Aluno\">' + (jQuery('#RA_do_Aluno').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#Name').replaceWith('<div class=\"form-control-static\" id=\"Name\">' + (jQuery('#Name').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Contact').replaceWith('<div class=\"form-control-static\" id=\"Contact\">' + (jQuery('#Contact').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#ID_Number').replaceWith('<div class=\"form-control-static\" id=\"ID_Number\">' + (jQuery('#ID_Number').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Contato').replaceWith('<div class=\"form-control-static\" id=\"Contato\">' + (jQuery('#Contato').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Ano').replaceWith('<div class=\"form-control-static\" id=\"Ano\">' + (jQuery('#Ano').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -338,39 +338,39 @@ function Users_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(id)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Membership_Number)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(RA_do_Aluno)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(Name)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Contact)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(ID_Number)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Contato)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Ano)%%>', '', $templateCode);
 
 	// process values
 	if($selected_id){
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Membership_Number)%%>', safe_html($urow['Membership_Number']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Membership_Number)%%>', html_attr($row['Membership_Number']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Membership_Number)%%>', urlencode($urow['Membership_Number']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(RA_do_Aluno)%%>', safe_html($urow['RA_do_Aluno']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(RA_do_Aluno)%%>', html_attr($row['RA_do_Aluno']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(RA_do_Aluno)%%>', urlencode($urow['RA_do_Aluno']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', safe_html($urow['Name']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', html_attr($row['Name']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Name)%%>', urlencode($urow['Name']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Contact)%%>', safe_html($urow['Contact']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Contact)%%>', html_attr($row['Contact']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Contact)%%>', urlencode($urow['Contact']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(ID_Number)%%>', safe_html($urow['ID_Number']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(ID_Number)%%>', html_attr($row['ID_Number']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(ID_Number)%%>', urlencode($urow['ID_Number']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Contato)%%>', safe_html($urow['Contato']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Contato)%%>', html_attr($row['Contato']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Contato)%%>', urlencode($urow['Contato']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Ano)%%>', safe_html($urow['Ano']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Ano)%%>', html_attr($row['Ano']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Ano)%%>', urlencode($urow['Ano']), $templateCode);
 	}else{
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Membership_Number)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Membership_Number)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(RA_do_Aluno)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(RA_do_Aluno)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(Name)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Name)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Contact)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Contact)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(ID_Number)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(ID_Number)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Contato)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Contato)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Ano)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Ano)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

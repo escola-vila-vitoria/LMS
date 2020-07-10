@@ -76,7 +76,7 @@ Note that **feature requests must target [Bootstrap v4](https://github.com/twbs/
 
 ## Documentation
 
-Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://getbootstrap.com>. The docs may also be run locally.
+Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Prateleira at <http://getbootstrap.com>. The docs may also be run locally.
 
 ### Running documentation locally
 

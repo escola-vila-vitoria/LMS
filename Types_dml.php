@@ -75,7 +75,7 @@ function Types_delete($selected_id, $AllowDeleteOfParents=false, $skipChecks=fal
 	// child table: books
 	$res = sql("select `id` from `Types` where `id`='$selected_id'", $eo);
 	$id = db_fetch_row($res);
-	$rires = sql("select count(1) from `books` where `Book_Type`='".addslashes($id[0])."'", $eo);
+	$rires = sql("select count(1) from `books` where `Gênero_do_Livro`='".addslashes($id[0])."'", $eo);
 	$rirow = db_fetch_row($rires);
 	if($rirow[0] && !$AllowDeleteOfParents && !$skipChecks){
 		$RetMsg = $Translation["couldn't delete"];

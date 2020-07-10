@@ -25,11 +25,11 @@
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Type`" => "Type",
 		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Pages`" => "Pages",
-		"`Magazines`.`Price`" => "Price",
-		"`Magazines`.`Publisher`" => "Publisher"
+		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`Magazines`.`Prateleira`" => "Prateleira",
+		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = array(   
@@ -38,8 +38,8 @@
 		3 => 3,
 		4 => '`Magazines`.`Date_Of_Receipt`',
 		5 => '`Magazines`.`Date_Published`',
-		6 => '`Magazines`.`Pages`',
-		7 => '`Magazines`.`Price`',
+		6 => '`Magazines`.`Prateleira`',
+		7 => '`Magazines`.`Estante`',
 		8 => 8
 	);
 
@@ -48,11 +48,11 @@
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Type`" => "Type",
 		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Pages`" => "Pages",
-		"`Magazines`.`Price`" => "Price",
-		"`Magazines`.`Publisher`" => "Publisher"
+		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`Magazines`.`Prateleira`" => "Prateleira",
+		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(   
@@ -61,9 +61,9 @@
 		"`Magazines`.`Name`" => "Name",
 		"`Magazines`.`Date_Of_Receipt`" => "Date Of Receipt",
 		"`Magazines`.`Date_Published`" => "Date Published",
-		"`Magazines`.`Pages`" => "Pages",
-		"`Magazines`.`Price`" => "Price",
-		"`Magazines`.`Publisher`" => "Publisher"
+		"`Magazines`.`Prateleira`" => "Prateleira",
+		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Editora`" => "Editora"
 	);
 
 	// Fields that can be quick searched
@@ -71,11 +71,11 @@
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Type`" => "Type",
 		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Pages`" => "Pages",
-		"`Magazines`.`Price`" => "Price",
-		"`Magazines`.`Publisher`" => "Publisher"
+		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`Magazines`.`Prateleira`" => "Prateleira",
+		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Editora`" => "Editora"
 	);
 
 	// Lookup fields that can be used as filterers
@@ -109,8 +109,8 @@
 	$x->PrimaryKey = "`Magazines`.`id`";
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 80, 150);
-	$x->ColCaption = array("Type", "Name", "Date Of Receipt", "Date Published", "Pages", "Price", "Publisher");
-	$x->ColFieldName = array('Type', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Pages', 'Price', 'Publisher');
+	$x->ColCaption = array("Type", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Editora");
+	$x->ColFieldName = array('Type', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Editora');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8);
 
 	// template paths below are based on the app main directory

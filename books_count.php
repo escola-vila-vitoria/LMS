@@ -6,7 +6,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$sql="SELECT Book_Title FROM books ORDER BY id";
+$sql="SELECT Titulo_do_Livro FROM books ORDER BY id";
 
 if ($result=mysqli_query($con,$sql))
   {

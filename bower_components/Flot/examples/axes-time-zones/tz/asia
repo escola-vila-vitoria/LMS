@@ -26,7 +26,7 @@
 # I found in the UCLA library.
 #
 # A reliable and entertaining source about time zones is
-# Derek Howse, Greenwich time and longitude, Philip Wilson Publishers (1997).
+# Derek Howse, Greenwich time and longitude, Philip Wilson Editoras (1997).
 #
 # I invented the abbreviations marked `*' in the following table;
 # the rest are from earlier versions of this file, or from other sources.
@@ -55,7 +55,7 @@
 # Incorporates data for Singapore from Robert Elz' asia 1.1, as well as
 # additional information from Tom Yap, Sun Microsystems Intercontinental
 # Technical Support (including a page from the Official Airline Guide -
-# Worldwide Edition).  The names for time zones are guesses.
+# Worldwide Edição).  The names for time zones are guesses.
 
 ###############################################################################
 
@@ -773,7 +773,7 @@ Zone	Asia/Kolkata	5:53:28 -	LMT	1880	# Kolkata
 # other formal surrender ceremonies were September 9, 11, and 13, plus
 # September 12 for the regional surrender to Mountbatten in Singapore.
 # These would be the earliest possible times for a change.
-# Regimes horaires pour le monde entier, by Henri Le Corre, (Editions
+# Regimes horaires pour le monde entier, by Henri Le Corre, (Ediçãos
 # Traditionnelles, 1987, Paris) says that Java and Madura switched
 # from JST to UTC+07:30 on 1945-09-23, and gives 1944-09-01 for Jayapura
 # (Hollandia).  For now, assume all Indonesian locations other than Jayapura

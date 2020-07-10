@@ -34,7 +34,7 @@
 	// drop-downs config
 	$lookups = array(   
 		'books' => array(   
-			'Book_Type' => array(
+			'Gênero_do_Livro' => array(
 				'parent_table' => 'Types',
 				'parent_pk_field' => 'id',
 				'parent_caption' => '`Types`.`Name`',
@@ -67,7 +67,7 @@
 			'Number' => array(
 				'parent_table' => 'Users',
 				'parent_pk_field' => 'id',
-				'parent_caption' => '`Users`.`Membership_Number`',
+				'parent_caption' => '`Users`.`RA_do_Aluno`',
 				'parent_from' => '`Users` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -78,19 +78,19 @@
 			'Book_Number' => array(
 				'parent_table' => 'books',
 				'parent_pk_field' => 'id',
-				'parent_caption' => '`books`.`ISBN_NO`',
-				'parent_from' => '`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Book_Type` ',
+				'parent_caption' => '`books`.`ISBN`',
+				'parent_from' => '`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Gênero_do_Livro` ',
 				'filterers' => array(),
 				'custom_query' => '',
 				'inherit_permissions' => false,
 				'list_type' => 0,
 				'not_null' => false
 			),
-			'Book_Title' => array(
+			'Titulo_do_Livro' => array(
 				'parent_table' => 'books',
 				'parent_pk_field' => 'id',
-				'parent_caption' => '`books`.`Book_Title`',
-				'parent_from' => '`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Book_Type` ',
+				'parent_caption' => '`books`.`Titulo_do_Livro`',
+				'parent_from' => '`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Gênero_do_Livro` ',
 				'filterers' => array(),
 				'custom_query' => '',
 				'inherit_permissions' => false,
@@ -102,7 +102,7 @@
 			'Book_Number' => array(
 				'parent_table' => 'Book_Issue',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS(\'\',   `books1`.`ISBN_NO`), \'\')',
+				'parent_caption' => 'IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS(\'\',   `books1`.`ISBN`), \'\')',
 				'parent_from' => '`Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -110,10 +110,10 @@
 				'list_type' => 0,
 				'not_null' => false
 			),
-			'Book_Title' => array(
+			'Titulo_do_Livro' => array(
 				'parent_table' => 'Book_Issue',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS(\'\',   `books1`.`Book_Title`), \'\')',
+				'parent_caption' => 'IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS(\'\',   `books1`.`Titulo_do_Livro`), \'\')',
 				'parent_from' => '`Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -124,7 +124,7 @@
 			'Issue_Date' => array(
 				'parent_table' => 'Book_Issue',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,\'%m/%d/%Y\'),\'\')',
+				'parent_caption' => 'if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,\'%d/%m/%Y\'),\'\')',
 				'parent_from' => '`Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -135,7 +135,7 @@
 			'Due_Date' => array(
 				'parent_table' => 'Book_Issue',
 				'parent_pk_field' => 'id',
-				'parent_caption' => 'if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,\'%m/%d/%Y\'),\'\')',
+				'parent_caption' => 'if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,\'%d/%m/%Y\'),\'\')',
 				'parent_from' => '`Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number` ',
 				'filterers' => array(),
 				'custom_query' => '',
@@ -157,7 +157,7 @@
 			'Number' => array(
 				'parent_table' => 'Users',
 				'parent_pk_field' => 'id',
-				'parent_caption' => '`Users`.`Membership_Number`',
+				'parent_caption' => '`Users`.`RA_do_Aluno`',
 				'parent_from' => '`Users` ',
 				'filterers' => array(),
 				'custom_query' => '',

@@ -27,16 +27,16 @@
 		case 'Book_Number':
 			if(!$id){
 				?>
-				$('Book_Title<?php echo $rnd1; ?>').innerHTML='&nbsp;';
+				$('Titulo_do_Livro<?php echo $rnd1; ?>').innerHTML='&nbsp;';
 				$('Issue_Date<?php echo $rnd1; ?>').innerHTML='&nbsp;';
 				$('Due_Date<?php echo $rnd1; ?>').innerHTML='&nbsp;';
 				<?php
 				break;
 			}
-			$res = sql("SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') as 'Book_Title', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number`  WHERE `Book_Issue`.`id`='$id' limit 1", $eo);
+			$res = sql("SELECT `Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status' FROM `Book_Issue` LEFT JOIN `Users` as Users1 ON `Users1`.`id`=`Book_Issue`.`Member` LEFT JOIN `books` as books1 ON `books1`.`id`=`Book_Issue`.`Book_Number`  WHERE `Book_Issue`.`id`='$id' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
-			$j('#Book_Title<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Book_Title']))); ?>&nbsp;');
+			$j('#Titulo_do_Livro<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Titulo_do_Livro']))); ?>&nbsp;');
 			$j('#Issue_Date<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Issue_Date']))); ?>&nbsp;');
 			$j('#Due_Date<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Return_Date']))); ?>&nbsp;');
 			<?php
@@ -49,10 +49,10 @@
 				<?php
 				break;
 			}
-			$res = sql("SELECT `Users`.`id` as 'id', `Users`.`Membership_Number` as 'Membership_Number', `Users`.`Name` as 'Name', `Users`.`Contact` as 'Contact', `Users`.`ID_Number` as 'ID_Number' FROM `Users`  WHERE `Users`.`id`='$id' limit 1", $eo);
+			$res = sql("SELECT `Users`.`id` as 'id', `Users`.`RA_do_Aluno` as 'RA_do_Aluno', `Users`.`Name` as 'Name', `Users`.`Contato` as 'Contato', `Users`.`Ano` as 'Ano' FROM `Users`  WHERE `Users`.`id`='$id' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
-			$j('#Number<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Membership_Number']))); ?>&nbsp;');
+			$j('#Number<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['RA_do_Aluno']))); ?>&nbsp;');
 			<?php
 			break;
 

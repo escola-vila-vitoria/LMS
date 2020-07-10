@@ -25,11 +25,11 @@
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
-		"IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') /* Number */" => "Number",
-		"IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') /* Book Number */" => "Book_Number",
-		"IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') /* Book Title */" => "Book_Title",
-		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'')" => "Issue_Date",
-		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'')" => "Return_Date",
+		"IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') /* Number */" => "Number",
+		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
+		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
+		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'')" => "Issue_Date",
+		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'')" => "Return_Date",
 		"`Book_Issue`.`Status`" => "Status"
 	);
 	// mapping incoming sort by requests to actual query fields
@@ -37,9 +37,9 @@
 		1 => '`Book_Issue`.`id`',
 		2 => 2,
 		3 => '`Users1`.`Name`',
-		4 => '`Users1`.`Membership_Number`',
-		5 => '`books1`.`ISBN_NO`',
-		6 => '`books1`.`Book_Title`',
+		4 => '`Users1`.`RA_do_Aluno`',
+		5 => '`books1`.`ISBN`',
+		6 => '`books1`.`Titulo_do_Livro`',
 		7 => '`Book_Issue`.`Issue_Date`',
 		8 => '`Book_Issue`.`Return_Date`',
 		9 => 9
@@ -50,11 +50,11 @@
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
-		"IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') /* Number */" => "Number",
-		"IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') /* Book Number */" => "Book_Number",
-		"IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') /* Book Title */" => "Book_Title",
-		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'')" => "Issue_Date",
-		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'')" => "Return_Date",
+		"IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') /* Number */" => "Number",
+		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
+		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
+		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'')" => "Issue_Date",
+		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'')" => "Return_Date",
 		"`Book_Issue`.`Status`" => "Status"
 	);
 	// Fields that can be filtered
@@ -62,9 +62,9 @@
 		"`Book_Issue`.`id`" => "ID",
 		"`Book_Issue`.`issue_id`" => "Issue id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
-		"IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') /* Number */" => "Number",
-		"IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') /* Book Number */" => "Book Number",
-		"IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') /* Book Title */" => "Book Title",
+		"IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') /* Number */" => "Number",
+		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book Number",
+		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo do Livro",
 		"`Book_Issue`.`Issue_Date`" => "Issue Date",
 		"`Book_Issue`.`Return_Date`" => "Return Date",
 		"`Book_Issue`.`Status`" => "Status"
@@ -75,11 +75,11 @@
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
-		"IF(    CHAR_LENGTH(`Users1`.`Membership_Number`), CONCAT_WS('',   `Users1`.`Membership_Number`), '') /* Number */" => "Number",
-		"IF(    CHAR_LENGTH(`books1`.`ISBN_NO`), CONCAT_WS('',   `books1`.`ISBN_NO`), '') /* Book Number */" => "Book_Number",
-		"IF(    CHAR_LENGTH(`books1`.`Book_Title`), CONCAT_WS('',   `books1`.`Book_Title`), '') /* Book Title */" => "Book_Title",
-		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%m/%d/%Y'),'')" => "Issue_Date",
-		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%m/%d/%Y'),'')" => "Return_Date",
+		"IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') /* Number */" => "Number",
+		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
+		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
+		"if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'')" => "Issue_Date",
+		"if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'')" => "Return_Date",
 		"`Book_Issue`.`Status`" => "Status"
 	);
 
@@ -114,8 +114,8 @@
 	$x->PrimaryKey = "`Book_Issue`.`id`";
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 150);
-	$x->ColCaption = array("Issue id", "Member", "Number", "Book Number", "Book Title", "Issue Date", "Return Date", "Status");
-	$x->ColFieldName = array('issue_id', 'Member', 'Number', 'Book_Number', 'Book_Title', 'Issue_Date', 'Return_Date', 'Status');
+	$x->ColCaption = array("Issue id", "Member", "Number", "Book Number", "Titulo do Livro", "Issue Date", "Return Date", "Status");
+	$x->ColFieldName = array('issue_id', 'Member', 'Number', 'Book_Number', 'Titulo_do_Livro', 'Issue_Date', 'Return_Date', 'Status');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9);
 
 	// template paths below are based on the app main directory

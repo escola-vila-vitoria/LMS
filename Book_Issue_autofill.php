@@ -31,24 +31,24 @@
 				<?php
 				break;
 			}
-			$res = sql("SELECT `Users`.`id` as 'id', `Users`.`Membership_Number` as 'Membership_Number', `Users`.`Name` as 'Name', `Users`.`Contact` as 'Contact', `Users`.`ID_Number` as 'ID_Number' FROM `Users`  WHERE `Users`.`id`='$id' limit 1", $eo);
+			$res = sql("SELECT `Users`.`id` as 'id', `Users`.`RA_do_Aluno` as 'RA_do_Aluno', `Users`.`Name` as 'Name', `Users`.`Contato` as 'Contato', `Users`.`Ano` as 'Ano' FROM `Users`  WHERE `Users`.`id`='$id' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
-			$j('#Number<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Membership_Number']))); ?>&nbsp;');
+			$j('#Number<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['RA_do_Aluno']))); ?>&nbsp;');
 			<?php
 			break;
 
 		case 'Book_Number':
 			if(!$id){
 				?>
-				$('Book_Title<?php echo $rnd1; ?>').innerHTML='&nbsp;';
+				$('Titulo_do_Livro<?php echo $rnd1; ?>').innerHTML='&nbsp;';
 				<?php
 				break;
 			}
-			$res = sql("SELECT `books`.`id` as 'id', `books`.`ISBN_NO` as 'ISBN_NO', `books`.`Book_Title` as 'Book_Title', IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') as 'Book_Type', `books`.`Author_Name` as 'Author_Name', `books`.`Quantity` as 'Quantity', if(`books`.`Purchase_Date`,date_format(`books`.`Purchase_Date`,'%m/%d/%Y'),'') as 'Purchase_Date', `books`.`Edition` as 'Edition', `books`.`Price` as 'Price', `books`.`Pages` as 'Pages', `books`.`Publisher` as 'Publisher' FROM `books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Book_Type`  WHERE `books`.`id`='$id' limit 1", $eo);
+			$res = sql("SELECT `books`.`id` as 'id', `books`.`ISBN` as 'ISBN', `books`.`Titulo_do_Livro` as 'Titulo_do_Livro', IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') as 'Gênero_do_Livro', `books`.`Autor_do_Livro` as 'Autor_do_Livro', `books`.`Quantidade` as 'Quantidade', if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'') as 'Data_de_Aquisição', `books`.`Edição` as 'Edição', `books`.`Estante` as 'Estante', `books`.`Prateleira` as 'Prateleira', `books`.`Editora` as 'Editora' FROM `books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Gênero_do_Livro`  WHERE `books`.`id`='$id' limit 1", $eo);
 			$row = db_fetch_assoc($res);
 			?>
-			$j('#Book_Title<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Book_Title']))); ?>&nbsp;');
+			$j('#Titulo_do_Livro<?php echo $rnd1; ?>').html('<?php echo addslashes(str_replace(array("\r", "\n"), '', nl2br($row['Titulo_do_Livro']))); ?>&nbsp;');
 			<?php
 			break;
 

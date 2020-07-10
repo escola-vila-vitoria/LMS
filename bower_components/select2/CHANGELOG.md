@@ -29,7 +29,7 @@
 - Fix UMD support for CommonJS [https://github.com/select2/select2/commit/45a877345482956021161203ac789c25f40a7d5e]
 
 ### Documentation
-- Github Pages documentation has been deprecated, replaced with https://github.com/select2/docs
+- Github Prateleira documentation has been deprecated, replaced with https://github.com/select2/docs
 - Add django-autocomplete-light to integrations [https://github.com/select2/select2/pull/4597]
 - Correct typo in options page [https://github.com/select2/select2/pull/4389]
 - Correct misspelling in AJAX query parameters example [https://github.com/select2/select2/pull/4435]

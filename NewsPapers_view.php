@@ -25,12 +25,12 @@
 		"`NewsPapers`.`id`" => "id",
 		"`NewsPapers`.`Language`" => "Language",
 		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Pages`" => "Pages",
-		"`NewsPapers`.`Price`" => "Price",
+		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`NewsPapers`.`Prateleira`" => "Prateleira",
+		"`NewsPapers`.`Estante`" => "Estante",
 		"`NewsPapers`.`Type`" => "Type",
-		"`NewsPapers`.`Publisher`" => "Publisher"
+		"`NewsPapers`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = array(   
@@ -39,8 +39,8 @@
 		3 => 3,
 		4 => '`NewsPapers`.`Date_Of_Receipt`',
 		5 => '`NewsPapers`.`Date_Published`',
-		6 => '`NewsPapers`.`Pages`',
-		7 => '`NewsPapers`.`Price`',
+		6 => '`NewsPapers`.`Prateleira`',
+		7 => '`NewsPapers`.`Estante`',
 		8 => 8,
 		9 => 9
 	);
@@ -50,12 +50,12 @@
 		"`NewsPapers`.`id`" => "id",
 		"`NewsPapers`.`Language`" => "Language",
 		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Pages`" => "Pages",
-		"`NewsPapers`.`Price`" => "Price",
+		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`NewsPapers`.`Prateleira`" => "Prateleira",
+		"`NewsPapers`.`Estante`" => "Estante",
 		"`NewsPapers`.`Type`" => "Type",
-		"`NewsPapers`.`Publisher`" => "Publisher"
+		"`NewsPapers`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(   
@@ -64,10 +64,10 @@
 		"`NewsPapers`.`Name`" => "Name",
 		"`NewsPapers`.`Date_Of_Receipt`" => "Date Of Receipt",
 		"`NewsPapers`.`Date_Published`" => "Date Published",
-		"`NewsPapers`.`Pages`" => "Pages",
-		"`NewsPapers`.`Price`" => "Price",
+		"`NewsPapers`.`Prateleira`" => "Prateleira",
+		"`NewsPapers`.`Estante`" => "Estante",
 		"`NewsPapers`.`Type`" => "Type",
-		"`NewsPapers`.`Publisher`" => "Publisher"
+		"`NewsPapers`.`Editora`" => "Editora"
 	);
 
 	// Fields that can be quick searched
@@ -75,12 +75,12 @@
 		"`NewsPapers`.`id`" => "id",
 		"`NewsPapers`.`Language`" => "Language",
 		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%m/%d/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%m/%d/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Pages`" => "Pages",
-		"`NewsPapers`.`Price`" => "Price",
+		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
+		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
+		"`NewsPapers`.`Prateleira`" => "Prateleira",
+		"`NewsPapers`.`Estante`" => "Estante",
 		"`NewsPapers`.`Type`" => "Type",
-		"`NewsPapers`.`Publisher`" => "Publisher"
+		"`NewsPapers`.`Editora`" => "Editora"
 	);
 
 	// Lookup fields that can be used as filterers
@@ -114,8 +114,8 @@
 	$x->PrimaryKey = "`NewsPapers`.`id`";
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 80, 150, 150);
-	$x->ColCaption = array("Language", "Name", "Date Of Receipt", "Date Published", "Pages", "Price", "Type", "Publisher");
-	$x->ColFieldName = array('Language', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Pages', 'Price', 'Type', 'Publisher');
+	$x->ColCaption = array("Language", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Type", "Editora");
+	$x->ColFieldName = array('Language', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Type', 'Editora');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9);
 
 	// template paths below are based on the app main directory

@@ -10,7 +10,7 @@
 
 # From Paul Eggert (1999-03-22):
 # A reliable and entertaining source about time zones is
-# Derek Howse, Greenwich time and longitude, Philip Wilson Publishers (1997).
+# Derek Howse, Greenwich time and longitude, Philip Wilson Editoras (1997).
 
 ###############################################################################
 
@@ -193,7 +193,7 @@ Zone	PST8PDT		 -8:00	US	P%sT
 # Aleutians.
 
 # From Arthur David Olson (1988-02-13):
-# Legal standard time zone names, from United States Code (1982 Edition and
+# Legal standard time zone names, from United States Code (1982 Edição and
 # Supplement III), Title 15, Chapter 6, Section 260 and forward.  First, names
 # up to 1967-04-01 (when most provisions of the Uniform Time Act of 1966
 # took effect), as explained in sections 263 and 261:

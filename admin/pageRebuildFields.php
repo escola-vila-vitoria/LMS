@@ -12,16 +12,16 @@
 	$schema = array(   
 		'books' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
-			'ISBN_NO' => array('appgini' => 'VARCHAR(100) '),
-			'Book_Title' => array('appgini' => 'VARCHAR(200) '),
-			'Book_Type' => array('appgini' => 'INT unsigned '),
-			'Author_Name' => array('appgini' => 'VARCHAR(100) '),
-			'Quantity' => array('appgini' => 'INT '),
-			'Purchase_Date' => array('appgini' => 'DATE '),
-			'Edition' => array('appgini' => 'VARCHAR(40) '),
-			'Price' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
-			'Pages' => array('appgini' => 'INT '),
-			'Publisher' => array('appgini' => 'VARCHAR(140) ')
+			'ISBN' => array('appgini' => 'VARCHAR(100) '),
+			'Titulo_do_Livro' => array('appgini' => 'VARCHAR(200) '),
+			'Gênero_do_Livro' => array('appgini' => 'INT unsigned '),
+			'Autor_do_Livro' => array('appgini' => 'VARCHAR(100) '),
+			'Quantidade' => array('appgini' => 'INT '),
+			'Data_de_Aquisição' => array('appgini' => 'DATE '),
+			'Edição' => array('appgini' => 'VARCHAR(40) '),
+			'Estante' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
+			'Prateleira' => array('appgini' => 'INT '),
+			'Editora' => array('appgini' => 'VARCHAR(140) ')
 		),
 		'NewsPapers' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
@@ -29,10 +29,10 @@
 			'Name' => array('appgini' => 'VARCHAR(100) '),
 			'Date_Of_Receipt' => array('appgini' => 'DATE '),
 			'Date_Published' => array('appgini' => 'DATE '),
-			'Pages' => array('appgini' => 'INT '),
-			'Price' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
+			'Prateleira' => array('appgini' => 'INT '),
+			'Estante' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
 			'Type' => array('appgini' => 'VARCHAR(40) '),
-			'Publisher' => array('appgini' => 'VARCHAR(100) ')
+			'Editora' => array('appgini' => 'VARCHAR(100) ')
 		),
 		'Magazines' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
@@ -40,16 +40,16 @@
 			'Name' => array('appgini' => 'VARCHAR(100) '),
 			'Date_Of_Receipt' => array('appgini' => 'DATE '),
 			'Date_Published' => array('appgini' => 'DATE '),
-			'Pages' => array('appgini' => 'INT '),
-			'Price' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
-			'Publisher' => array('appgini' => 'VARCHAR(140) ')
+			'Prateleira' => array('appgini' => 'INT '),
+			'Estante' => array('appgini' => 'DECIMAL(10,2) default \'0.00\' '),
+			'Editora' => array('appgini' => 'VARCHAR(140) ')
 		),
 		'Users' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
-			'Membership_Number' => array('appgini' => 'VARCHAR(40) '),
+			'RA_do_Aluno' => array('appgini' => 'VARCHAR(40) '),
 			'Name' => array('appgini' => 'VARCHAR(140) '),
-			'Contact' => array('appgini' => 'VARCHAR(40) '),
-			'ID_Number' => array('appgini' => 'INT ')
+			'Contato' => array('appgini' => 'VARCHAR(40) '),
+			'Ano' => array('appgini' => 'INT ')
 		),
 		'Book_Issue' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
@@ -57,7 +57,7 @@
 			'Member' => array('appgini' => 'INT unsigned '),
 			'Number' => array('appgini' => 'INT unsigned '),
 			'Book_Number' => array('appgini' => 'INT unsigned '),
-			'Book_Title' => array('appgini' => 'INT unsigned '),
+			'Titulo_do_Livro' => array('appgini' => 'INT unsigned '),
 			'Issue_Date' => array('appgini' => 'DATE '),
 			'Return_Date' => array('appgini' => 'DATE '),
 			'Status' => array('appgini' => 'VARCHAR(40) ')
@@ -65,7 +65,7 @@
 		'Return_Book' => array(   
 			'id' => array('appgini' => 'INT unsigned not null primary key auto_increment '),
 			'Book_Number' => array('appgini' => 'INT unsigned '),
-			'Book_Title' => array('appgini' => 'INT unsigned '),
+			'Titulo_do_Livro' => array('appgini' => 'INT unsigned '),
 			'Issue_Date' => array('appgini' => 'INT unsigned default \'1\' '),
 			'Due_Date' => array('appgini' => 'INT unsigned default \'1\' '),
 			'Return_Date' => array('appgini' => 'DATE '),

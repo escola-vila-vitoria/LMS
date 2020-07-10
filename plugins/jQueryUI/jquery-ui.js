@@ -12818,7 +12818,7 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 
 	// number of pages in a slider
 	// (how many times can you page up/down to go through the whole range)
-	numPages: 5,
+	numPrateleira: 5,
 
 	_create: function() {
 		this._keySliding = false;
@@ -13445,12 +13445,12 @@ var slider = $.widget( "ui.slider", $.ui.mouse, {
 					break;
 				case $.ui.keyCode.PAGE_UP:
 					newVal = this._trimAlignValue(
-						curVal + ( ( this._valueMax() - this._valueMin() ) / this.numPages )
+						curVal + ( ( this._valueMax() - this._valueMin() ) / this.numPrateleira )
 					);
 					break;
 				case $.ui.keyCode.PAGE_DOWN:
 					newVal = this._trimAlignValue(
-						curVal - ( (this._valueMax() - this._valueMin()) / this.numPages ) );
+						curVal - ( (this._valueMax() - this._valueMin()) / this.numPrateleira ) );
 					break;
 				case $.ui.keyCode.UP:
 				case $.ui.keyCode.RIGHT:

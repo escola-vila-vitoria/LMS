@@ -4,7 +4,7 @@
 
 		/* data for selected record, or defaults if none is selected */
 		var data = {
-			Book_Type: { id: '<?php echo $rdata['Book_Type']; ?>', value: '<?php echo $rdata['Book_Type']; ?>', text: '<?php echo $jdata['Book_Type']; ?>' }
+			Gênero_do_Livro: { id: '<?php echo $rdata['Gênero_do_Livro']; ?>', value: '<?php echo $rdata['Gênero_do_Livro']; ?>', text: '<?php echo $jdata['Gênero_do_Livro']; ?>' }
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -12,11 +12,11 @@
 		AppGini.cache[tn] = AppGini.cache[tn] || AppGini.ajaxCache();
 		var cache = AppGini.cache[tn];
 
-		/* saved value for Book_Type */
+		/* saved value for Gênero_do_Livro */
 		cache.addCheck(function(u, d){
 			if(u != 'ajax_combo.php') return false;
-			if(d.t == tn && d.f == 'Book_Type' && d.id == data.Book_Type.id)
-				return { results: [ data.Book_Type ], more: false, elapsed: 0.01 };
+			if(d.t == tn && d.f == 'Gênero_do_Livro' && d.id == data.Gênero_do_Livro.id)
+				return { results: [ data.Gênero_do_Livro ], more: false, elapsed: 0.01 };
 			return false;
 		});
 

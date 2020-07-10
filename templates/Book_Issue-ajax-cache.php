@@ -7,7 +7,7 @@
 			Member: { id: '<?php echo $rdata['Member']; ?>', value: '<?php echo $rdata['Member']; ?>', text: '<?php echo $jdata['Member']; ?>' },
 			Number: '<?php echo $jdata['Number']; ?>',
 			Book_Number: { id: '<?php echo $rdata['Book_Number']; ?>', value: '<?php echo $rdata['Book_Number']; ?>', text: '<?php echo $jdata['Book_Number']; ?>' },
-			Book_Title: '<?php echo $jdata['Book_Title']; ?>'
+			Titulo_do_Livro: '<?php echo $jdata['Titulo_do_Livro']; ?>'
 		};
 
 		/* initialize or continue using AppGini.cache for the current table */
@@ -52,7 +52,7 @@
 			for(var rnd in d) if(rnd.match(/^rnd/)) break;
 
 			if(d.mfk == 'Book_Number' && d.id == data.Book_Number.id){
-				$j('#Book_Title' + d[rnd]).html(data.Book_Title);
+				$j('#Titulo_do_Livro' + d[rnd]).html(data.Titulo_do_Livro);
 				return true;
 			}
 

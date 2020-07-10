@@ -30,23 +30,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `books` (
   `id` int(10) UNSIGNED NOT NULL,
-  `ISBN_NO` varchar(100) DEFAULT NULL,
-  `Book_Title` varchar(200) DEFAULT NULL,
-  `Book_Type` int(10) UNSIGNED DEFAULT NULL,
-  `Author_Name` varchar(100) DEFAULT NULL,
-  `Quantity` int(11) DEFAULT NULL,
-  `Purchase_Date` date DEFAULT NULL,
-  `Edition` varchar(40) DEFAULT NULL,
-  `Price` decimal(10,2) DEFAULT '0.00',
-  `Pages` int(11) DEFAULT NULL,
-  `Publisher` varchar(140) DEFAULT NULL
+  `ISBN` varchar(100) DEFAULT NULL,
+  `Titulo_do_Livro` varchar(200) DEFAULT NULL,
+  `Gênero_do_Livro` int(10) UNSIGNED DEFAULT NULL,
+  `Autor_do_Livro` varchar(100) DEFAULT NULL,
+  `Quantidade` int(11) DEFAULT NULL,
+  `Data_de_Aquisição` date DEFAULT NULL,
+  `Edição` varchar(40) DEFAULT NULL,
+  `Estante` decimal(10,2) DEFAULT '0.00',
+  `Prateleira` int(11) DEFAULT NULL,
+  `Editora` varchar(140) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`id`, `ISBN_NO`, `Book_Title`, `Book_Type`, `Author_Name`, `Quantity`, `Purchase_Date`, `Edition`, `Price`, `Pages`, `Publisher`) VALUES
+INSERT INTO `books` (`id`, `ISBN`, `Titulo_do_Livro`, `Gênero_do_Livro`, `Autor_do_Livro`, `Quantidade`, `Data_de_Aquisição`, `Edição`, `Estante`, `Prateleira`, `Editora`) VALUES
 (1, '62781733', 'River  Between', 1, 'Ngugi wa Thiongo', 33, '2018-02-24', '1', '300.00', 120, 'Longhorn'),
 (2, '978-9966-111-32-6', 'Who is Jesus', 2, 'Greg Gilbert', 1, '2018-02-24', NULL, '800.00', 138, 'ekklesia afrika'),
 (3, '978-0-8308-5810-1', 'Pauls Prison Letters', 1, 'Smith', 23, '2018-02-24', NULL, '450.00', 133, 'IVP cONNECT');
@@ -62,7 +62,7 @@ CREATE TABLE `book_issue` (
   `Member` int(10) UNSIGNED DEFAULT NULL,
   `Number` int(10) UNSIGNED DEFAULT NULL,
   `Book_Number` int(10) UNSIGNED DEFAULT NULL,
-  `Book_Title` int(10) UNSIGNED DEFAULT NULL,
+  `Titulo_do_Livro` int(10) UNSIGNED DEFAULT NULL,
   `Issue_Date` date DEFAULT NULL,
   `Return_Date` date DEFAULT NULL,
   `Status` varchar(40) DEFAULT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `book_issue` (
 -- Dumping data for table `book_issue`
 --
 
-INSERT INTO `book_issue` (`id`, `Member`, `Number`, `Book_Number`, `Book_Title`, `Issue_Date`, `Return_Date`, `Status`, `issue_id`) VALUES
+INSERT INTO `book_issue` (`id`, `Member`, `Number`, `Book_Number`, `Titulo_do_Livro`, `Issue_Date`, `Return_Date`, `Status`, `issue_id`) VALUES
 (1, 1, 1, 1, 1, '2018-02-24', '2018-02-24', 'returned', '1'),
 (2, 2, 2, 2, 2, '2018-02-24', '2018-03-01', 'issued', '2');
 
@@ -89,9 +89,9 @@ CREATE TABLE `magazines` (
   `Name` varchar(100) DEFAULT NULL,
   `Date_Of_Receipt` date DEFAULT NULL,
   `Date_Published` date DEFAULT NULL,
-  `Pages` int(11) DEFAULT NULL,
-  `Price` decimal(10,2) DEFAULT '0.00',
-  `Publisher` varchar(140) DEFAULT NULL
+  `Prateleira` int(11) DEFAULT NULL,
+  `Estante` decimal(10,2) DEFAULT '0.00',
+  `Editora` varchar(140) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -248,17 +248,17 @@ CREATE TABLE `newspapers` (
   `Name` varchar(100) DEFAULT NULL,
   `Date_Of_Receipt` date DEFAULT NULL,
   `Date_Published` date DEFAULT NULL,
-  `Pages` int(11) DEFAULT NULL,
-  `Price` decimal(10,2) DEFAULT '0.00',
+  `Prateleira` int(11) DEFAULT NULL,
+  `Estante` decimal(10,2) DEFAULT '0.00',
   `Type` varchar(40) DEFAULT NULL,
-  `Publisher` varchar(100) DEFAULT NULL
+  `Editora` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `newspapers`
 --
 
-INSERT INTO `newspapers` (`id`, `Language`, `Name`, `Date_Of_Receipt`, `Date_Published`, `Pages`, `Price`, `Type`, `Publisher`) VALUES
+INSERT INTO `newspapers` (`id`, `Language`, `Name`, `Date_Of_Receipt`, `Date_Published`, `Prateleira`, `Estante`, `Type`, `Editora`) VALUES
 (1, 'English', 'The Standard', '2018-02-24', '2018-02-24', 35, '100.00', 'newspaper', 'Standard Group Media');
 
 -- --------------------------------------------------------
@@ -270,7 +270,7 @@ INSERT INTO `newspapers` (`id`, `Language`, `Name`, `Date_Of_Receipt`, `Date_Pub
 CREATE TABLE `return_book` (
   `id` int(10) UNSIGNED NOT NULL,
   `Book_Number` int(10) UNSIGNED DEFAULT NULL,
-  `Book_Title` int(10) UNSIGNED DEFAULT NULL,
+  `Titulo_do_Livro` int(10) UNSIGNED DEFAULT NULL,
   `Issue_Date` date DEFAULT NULL,
   `Due_Date` int(10) UNSIGNED DEFAULT '1',
   `Return_Date` date DEFAULT NULL,
@@ -284,7 +284,7 @@ CREATE TABLE `return_book` (
 -- Dumping data for table `return_book`
 --
 
-INSERT INTO `return_book` (`id`, `Book_Number`, `Book_Title`, `Issue_Date`, `Due_Date`, `Return_Date`, `Member`, `Number`, `Fine`, `Status`) VALUES
+INSERT INTO `return_book` (`id`, `Book_Number`, `Titulo_do_Livro`, `Issue_Date`, `Due_Date`, `Return_Date`, `Member`, `Number`, `Fine`, `Status`) VALUES
 (1, 1, 1, '0000-00-00', 1, '2018-03-04', 1, 1, '50.00', 'cleared');
 
 -- --------------------------------------------------------
@@ -315,17 +315,17 @@ INSERT INTO `types` (`id`, `Name`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `Membership_Number` varchar(40) DEFAULT NULL,
+  `RA_do_Aluno` varchar(40) DEFAULT NULL,
   `Name` varchar(140) DEFAULT NULL,
-  `Contact` varchar(40) DEFAULT NULL,
-  `ID_Number` int(11) DEFAULT NULL
+  `Contato` varchar(40) DEFAULT NULL,
+  `Ano` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `Membership_Number`, `Name`, `Contact`, `ID_Number`) VALUES
+INSERT INTO `users` (`id`, `RA_do_Aluno`, `Name`, `Contato`, `Ano`) VALUES
 (1, '1231', 'Kelvin Guma', '0708344101', 99239183),
 (2, '2000', 'Dennis Amadi', '079822271', 33432113);
 
@@ -338,7 +338,7 @@ INSERT INTO `users` (`id`, `Membership_Number`, `Name`, `Contact`, `ID_Number`) 
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Book_Type` (`Book_Type`);
+  ADD KEY `Gênero_do_Livro` (`Gênero_do_Livro`);
 
 --
 -- Indexes for table `book_issue`

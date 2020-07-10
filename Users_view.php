@@ -21,46 +21,46 @@
 	$x->TableName = "Users";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`Users`.`id`" => "id",
-		"`Users`.`Membership_Number`" => "Membership_Number",
+		"`Users`.`RA_do_Aluno`" => "RA_do_Aluno",
 		"`Users`.`Name`" => "Name",
-		"`Users`.`Contact`" => "Contact",
-		"`Users`.`ID_Number`" => "ID_Number"
+		"`Users`.`Contato`" => "Contato",
+		"`Users`.`Ano`" => "Ano"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`Users`.`id`',
 		2 => 2,
 		3 => 3,
 		4 => 4,
-		5 => '`Users`.`ID_Number`'
+		5 => '`Users`.`Ano`'
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`Users`.`id`" => "id",
-		"`Users`.`Membership_Number`" => "Membership_Number",
+		"`Users`.`RA_do_Aluno`" => "RA_do_Aluno",
 		"`Users`.`Name`" => "Name",
-		"`Users`.`Contact`" => "Contact",
-		"`Users`.`ID_Number`" => "ID_Number"
+		"`Users`.`Contato`" => "Contato",
+		"`Users`.`Ano`" => "Ano"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`Users`.`id`" => "ID",
-		"`Users`.`Membership_Number`" => "Membership Number",
+		"`Users`.`RA_do_Aluno`" => "RA do Aluno",
 		"`Users`.`Name`" => "Name",
-		"`Users`.`Contact`" => "Contact",
-		"`Users`.`ID_Number`" => "ID Number"
+		"`Users`.`Contato`" => "Contato",
+		"`Users`.`Ano`" => "Ano"
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`Users`.`id`" => "id",
-		"`Users`.`Membership_Number`" => "Membership_Number",
+		"`Users`.`RA_do_Aluno`" => "RA_do_Aluno",
 		"`Users`.`Name`" => "Name",
-		"`Users`.`Contact`" => "Contact",
-		"`Users`.`ID_Number`" => "ID_Number"
+		"`Users`.`Contato`" => "Contato",
+		"`Users`.`Ano`" => "Ano"
 	);
 
 	// Lookup fields that can be used as filterers
@@ -93,9 +93,9 @@
 	$x->TableIcon = "resources/table_icons/group.png";
 	$x->PrimaryKey = "`Users`.`id`";
 
-	$x->ColWidth   = array(  150, 150, 150, 150);
-	$x->ColCaption = array("Membership Number", "Name", "Contact", "ID Number");
-	$x->ColFieldName = array('Membership_Number', 'Name', 'Contact', 'ID_Number');
+	$x->ColWidth   = array(150, 150, 150, 150);
+	$x->ColCaption = array("RA do Aluno", "Name", "Contato", "Ano");
+	$x->ColFieldName = array('RA_do_Aluno', 'Name', 'Contato', 'Ano');
 	$x->ColNumber  = array(2, 3, 4, 5);
 
 	// template paths below are based on the app main directory
@@ -141,9 +141,9 @@
 	if(function_exists('Users_header')){
 		$args=array();
 		$headerCode=Users_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -155,9 +155,9 @@
 	if(function_exists('Users_footer')){
 		$args=array();
 		$footerCode=Users_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

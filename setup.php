@@ -33,7 +33,7 @@
 	}
 
 	function isEmail($email){
-		if(preg_match('/^([*+!.&#$¦\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,45})$/i', $email)){
+		if(preg_match('/^([*+!.&#$ï¿½\'\\%\/0-9a-z^_`{}=?~:-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,45})$/i', $email)){
 			return $email;
 		}else{
 			return FALSE;
@@ -160,9 +160,9 @@
 				'custom2' => 'Address',
 				'custom3' => 'City',
 				'custom4' => 'State',
-				'MySQLDateFormat' => '%m/%d/%Y',
+				'MySQLDateFormat' => '%d/%m/%Y',
 				'PHPDateFormat' => 'n/j/Y',
-				'PHPDateTimeFormat' => 'm/d/Y, h:i a',
+				'PHPDateTimeFormat' => 'd/m/Y, h:i a',
 				'senderName' => 'Membership management',
 				'senderEmail' => $email,
 				'approvalSubject' => 'Your membership is now approved',

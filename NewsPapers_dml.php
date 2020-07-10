@@ -22,15 +22,15 @@ function NewsPapers_insert(){
 	$data['Date_Of_Receipt'] = parseMySQLDate($data['Date_Of_Receipt'], '');
 	$data['Date_Published'] = intval($_REQUEST['Date_PublishedYear']) . '-' . intval($_REQUEST['Date_PublishedMonth']) . '-' . intval($_REQUEST['Date_PublishedDay']);
 	$data['Date_Published'] = parseMySQLDate($data['Date_Published'], '');
-	$data['Pages'] = makeSafe($_REQUEST['Pages']);
-		if($data['Pages'] == empty_lookup_value){ $data['Pages'] = ''; }
-	$data['Price'] = makeSafe($_REQUEST['Price']);
-		if($data['Price'] == empty_lookup_value){ $data['Price'] = ''; }
+	$data['Prateleira'] = makeSafe($_REQUEST['Prateleira']);
+		if($data['Prateleira'] == empty_lookup_value){ $data['Prateleira'] = ''; }
+	$data['Estante'] = makeSafe($_REQUEST['Estante']);
+		if($data['Estante'] == empty_lookup_value){ $data['Estante'] = ''; }
 	$data['Type'] = makeSafe($_REQUEST['Type']);
 		if($data['Type'] == empty_lookup_value){ $data['Type'] = ''; }
-	$data['Publisher'] = makeSafe($_REQUEST['Publisher']);
-		if($data['Publisher'] == empty_lookup_value){ $data['Publisher'] = ''; }
-	if($data['Price'] == '') $data['Price'] = "0.00";
+	$data['Editora'] = makeSafe($_REQUEST['Editora']);
+		if($data['Editora'] == empty_lookup_value){ $data['Editora'] = ''; }
+	if($data['Estante'] == '') $data['Estante'] = "0.00";
 
 	// hook: NewsPapers_before_insert
 	if(function_exists('NewsPapers_before_insert')){
@@ -39,7 +39,7 @@ function NewsPapers_insert(){
 	}
 
 	$o = array('silentErrors' => true);
-	sql('insert into `NewsPapers` set       `Language`=' . (($data['Language'] !== '' && $data['Language'] !== NULL) ? "'{$data['Language']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Pages`=' . (($data['Pages'] !== '' && $data['Pages'] !== NULL) ? "'{$data['Pages']}'" : 'NULL') . ', `Price`=' . (($data['Price'] !== '' && $data['Price'] !== NULL) ? "'{$data['Price']}'" : 'NULL') . ', `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Publisher`=' . (($data['Publisher'] !== '' && $data['Publisher'] !== NULL) ? "'{$data['Publisher']}'" : 'NULL'), $o);
+	sql('insert into `NewsPapers` set       `Language`=' . (($data['Language'] !== '' && $data['Language'] !== NULL) ? "'{$data['Language']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL'), $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"NewsPapers_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -120,14 +120,14 @@ function NewsPapers_update($selected_id){
 	$data['Date_Of_Receipt'] = parseMySQLDate($data['Date_Of_Receipt'], '');
 	$data['Date_Published'] = intval($_REQUEST['Date_PublishedYear']) . '-' . intval($_REQUEST['Date_PublishedMonth']) . '-' . intval($_REQUEST['Date_PublishedDay']);
 	$data['Date_Published'] = parseMySQLDate($data['Date_Published'], '');
-	$data['Pages'] = makeSafe($_REQUEST['Pages']);
-		if($data['Pages'] == empty_lookup_value){ $data['Pages'] = ''; }
-	$data['Price'] = makeSafe($_REQUEST['Price']);
-		if($data['Price'] == empty_lookup_value){ $data['Price'] = ''; }
+	$data['Prateleira'] = makeSafe($_REQUEST['Prateleira']);
+		if($data['Prateleira'] == empty_lookup_value){ $data['Prateleira'] = ''; }
+	$data['Estante'] = makeSafe($_REQUEST['Estante']);
+		if($data['Estante'] == empty_lookup_value){ $data['Estante'] = ''; }
 	$data['Type'] = makeSafe($_REQUEST['Type']);
 		if($data['Type'] == empty_lookup_value){ $data['Type'] = ''; }
-	$data['Publisher'] = makeSafe($_REQUEST['Publisher']);
-		if($data['Publisher'] == empty_lookup_value){ $data['Publisher'] = ''; }
+	$data['Editora'] = makeSafe($_REQUEST['Editora']);
+		if($data['Editora'] == empty_lookup_value){ $data['Editora'] = ''; }
 	$data['selectedID']=makeSafe($selected_id);
 
 	// hook: NewsPapers_before_update
@@ -137,7 +137,7 @@ function NewsPapers_update($selected_id){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('update `NewsPapers` set       `Language`=' . (($data['Language'] !== '' && $data['Language'] !== NULL) ? "'{$data['Language']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Pages`=' . (($data['Pages'] !== '' && $data['Pages'] !== NULL) ? "'{$data['Pages']}'" : 'NULL') . ', `Price`=' . (($data['Price'] !== '' && $data['Price'] !== NULL) ? "'{$data['Price']}'" : 'NULL') . ', `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Publisher`=' . (($data['Publisher'] !== '' && $data['Publisher'] !== NULL) ? "'{$data['Publisher']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `NewsPapers` set       `Language`=' . (($data['Language'] !== '' && $data['Language'] !== NULL) ? "'{$data['Language']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
 	if($o['error']!=''){
 		echo $o['error'];
 		echo '<a href="NewsPapers_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
@@ -309,10 +309,10 @@ function NewsPapers_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 		$jsReadOnly .= "\tjQuery('#Date_Of_ReceiptDay, #Date_Of_ReceiptMonth, #Date_Of_ReceiptYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\tjQuery('#Date_Published').prop('readonly', true);\n";
 		$jsReadOnly .= "\tjQuery('#Date_PublishedDay, #Date_PublishedMonth, #Date_PublishedYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\tjQuery('#Pages').replaceWith('<div class=\"form-control-static\" id=\"Pages\">' + (jQuery('#Pages').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Price').replaceWith('<div class=\"form-control-static\" id=\"Price\">' + (jQuery('#Price').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Prateleira').replaceWith('<div class=\"form-control-static\" id=\"Prateleira\">' + (jQuery('#Prateleira').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Estante').replaceWith('<div class=\"form-control-static\" id=\"Estante\">' + (jQuery('#Estante').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('#Type').replaceWith('<div class=\"form-control-static\" id=\"Type\">' + (jQuery('#Type').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Publisher').replaceWith('<div class=\"form-control-static\" id=\"Publisher\">' + (jQuery('#Publisher').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Editora').replaceWith('<div class=\"form-control-static\" id=\"Editora\">' + (jQuery('#Editora').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
 		$noUploads = true;
@@ -349,10 +349,10 @@ function NewsPapers_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 	$templateCode = str_replace('<%%UPLOADFILE(Name)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(Date_Of_Receipt)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(Date_Published)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Pages)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Price)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Prateleira)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Estante)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(Type)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Publisher)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Editora)%%>', '', $templateCode);
 
 	// process values
 	if($selected_id){
@@ -365,22 +365,22 @@ function NewsPapers_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', safe_html($urow['Name']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', html_attr($row['Name']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Name)%%>', urlencode($urow['Name']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Of_Receipt)%%>', @date('m/d/Y', @strtotime(html_attr($row['Date_Of_Receipt']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Of_Receipt)%%>', urlencode(@date('m/d/Y', @strtotime(html_attr($urow['Date_Of_Receipt'])))), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Published)%%>', @date('m/d/Y', @strtotime(html_attr($row['Date_Published']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Published)%%>', urlencode(@date('m/d/Y', @strtotime(html_attr($urow['Date_Published'])))), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Pages)%%>', safe_html($urow['Pages']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Pages)%%>', html_attr($row['Pages']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Pages)%%>', urlencode($urow['Pages']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Price)%%>', safe_html($urow['Price']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Price)%%>', html_attr($row['Price']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Price)%%>', urlencode($urow['Price']), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Date_Of_Receipt)%%>', @date('d/m/Y', @strtotime(html_attr($row['Date_Of_Receipt']))), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Date_Of_Receipt)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Date_Of_Receipt'])))), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Date_Published)%%>', @date('d/m/Y', @strtotime(html_attr($row['Date_Published']))), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Date_Published)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Date_Published'])))), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Prateleira)%%>', safe_html($urow['Prateleira']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Prateleira)%%>', html_attr($row['Prateleira']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Prateleira)%%>', urlencode($urow['Prateleira']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Estante)%%>', safe_html($urow['Estante']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Estante)%%>', html_attr($row['Estante']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Estante)%%>', urlencode($urow['Estante']), $templateCode);
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Type)%%>', safe_html($urow['Type']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Type)%%>', html_attr($row['Type']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Type)%%>', urlencode($urow['Type']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Publisher)%%>', safe_html($urow['Publisher']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Publisher)%%>', html_attr($row['Publisher']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Publisher)%%>', urlencode($urow['Publisher']), $templateCode);
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Editora)%%>', safe_html($urow['Editora']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Editora)%%>', html_attr($row['Editora']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Editora)%%>', urlencode($urow['Editora']), $templateCode);
 	}else{
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
@@ -392,14 +392,14 @@ function NewsPapers_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 		$templateCode = str_replace('<%%URLVALUE(Date_Of_Receipt)%%>', urlencode(''), $templateCode);
 		$templateCode = str_replace('<%%VALUE(Date_Published)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Date_Published)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Pages)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Pages)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Price)%%>', '0.00', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Price)%%>', urlencode('0.00'), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Prateleira)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Prateleira)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Estante)%%>', '0.00', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Estante)%%>', urlencode('0.00'), $templateCode);
 		$templateCode = str_replace('<%%VALUE(Type)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Type)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Publisher)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Publisher)%%>', urlencode(''), $templateCode);
+		$templateCode = str_replace('<%%VALUE(Editora)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Editora)%%>', urlencode(''), $templateCode);
 	}
 
 	// process translations

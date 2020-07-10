@@ -76,7 +76,7 @@ make a pull request back to Select2 here on GitHub.
 Documentation
 -------------
 The documentation for Select2 is available
-[through GitHub Pages][documentation] and is located within this repository
+[through GitHub Prateleira][documentation] and is located within this repository
 in the [`docs` folder][documentation-folder].
 
 Community

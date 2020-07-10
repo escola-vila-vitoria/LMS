@@ -23,16 +23,16 @@
 	// Fields that can be displayed in the table view
 	$x->QueryFieldsTV = array(   
 		"`books`.`id`" => "id",
-		"`books`.`ISBN_NO`" => "ISBN_NO",
-		"`books`.`Book_Title`" => "Book_Title",
-		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Book Type */" => "Book_Type",
-		"`books`.`Author_Name`" => "Author_Name",
-		"`books`.`Quantity`" => "Quantity",
-		"if(`books`.`Purchase_Date`,date_format(`books`.`Purchase_Date`,'%m/%d/%Y'),'')" => "Purchase_Date",
-		"`books`.`Edition`" => "Edition",
-		"`books`.`Price`" => "Price",
-		"`books`.`Pages`" => "Pages",
-		"`books`.`Publisher`" => "Publisher"
+		"`books`.`ISBN`" => "ISBN",
+		"`books`.`Titulo_do_Livro`" => "Titulo_do_Livro",
+		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Gênero do Livro */" => "Gênero_do_Livro",
+		"`books`.`Autor_do_Livro`" => "Autor_do_Livro",
+		"`books`.`Quantidade`" => "Quantidade",
+		"if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'')" => "Data_de_Aquisição",
+		"`books`.`Edição`" => "Edição",
+		"`books`.`Estante`" => "Estante",
+		"`books`.`Prateleira`" => "Prateleira",
+		"`books`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
 	$x->SortFields = array(   
@@ -41,62 +41,62 @@
 		3 => 3,
 		4 => '`Types1`.`Name`',
 		5 => 5,
-		6 => '`books`.`Quantity`',
-		7 => '`books`.`Purchase_Date`',
+		6 => '`books`.`Quantidade`',
+		7 => '`books`.`Data_de_Aquisição`',
 		8 => 8,
-		9 => '`books`.`Price`',
-		10 => '`books`.`Pages`',
+		9 => '`books`.`Estante`',
+		10 => '`books`.`Prateleira`',
 		11 => 11
 	);
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = array(   
 		"`books`.`id`" => "id",
-		"`books`.`ISBN_NO`" => "ISBN_NO",
-		"`books`.`Book_Title`" => "Book_Title",
-		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Book Type */" => "Book_Type",
-		"`books`.`Author_Name`" => "Author_Name",
-		"`books`.`Quantity`" => "Quantity",
-		"if(`books`.`Purchase_Date`,date_format(`books`.`Purchase_Date`,'%m/%d/%Y'),'')" => "Purchase_Date",
-		"`books`.`Edition`" => "Edition",
-		"`books`.`Price`" => "Price",
-		"`books`.`Pages`" => "Pages",
-		"`books`.`Publisher`" => "Publisher"
+		"`books`.`ISBN`" => "ISBN",
+		"`books`.`Titulo_do_Livro`" => "Titulo_do_Livro",
+		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Gênero do Livro */" => "Gênero_do_Livro",
+		"`books`.`Autor_do_Livro`" => "Autor_do_Livro",
+		"`books`.`Quantidade`" => "Quantidade",
+		"if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'')" => "Data_de_Aquisição",
+		"`books`.`Edição`" => "Edição",
+		"`books`.`Estante`" => "Estante",
+		"`books`.`Prateleira`" => "Prateleira",
+		"`books`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(   
 		"`books`.`id`" => "ID",
-		"`books`.`ISBN_NO`" => "ISBN NO",
-		"`books`.`Book_Title`" => "Book Title",
-		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Book Type */" => "Book Type",
-		"`books`.`Author_Name`" => "Author Name",
-		"`books`.`Quantity`" => "Quantity",
-		"`books`.`Purchase_Date`" => "Purchase Date",
-		"`books`.`Edition`" => "Edition",
-		"`books`.`Price`" => "Price",
-		"`books`.`Pages`" => "Pages",
-		"`books`.`Publisher`" => "Publisher"
+		"`books`.`ISBN`" => "ISBN",
+		"`books`.`Titulo_do_Livro`" => "Titulo do Livro",
+		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Gênero do Livro */" => "Gênero do Livro",
+		"`books`.`Autor_do_Livro`" => "Autor do Livro",
+		"`books`.`Quantidade`" => "Quantidade",
+		"`books`.`Data_de_Aquisição`" => "Data de Aquisição",
+		"`books`.`Edição`" => "Edição",
+		"`books`.`Estante`" => "Estante",
+		"`books`.`Prateleira`" => "Prateleira",
+		"`books`.`Editora`" => "Editora"
 	);
 
 	// Fields that can be quick searched
 	$x->QueryFieldsQS = array(   
 		"`books`.`id`" => "id",
-		"`books`.`ISBN_NO`" => "ISBN_NO",
-		"`books`.`Book_Title`" => "Book_Title",
-		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Book Type */" => "Book_Type",
-		"`books`.`Author_Name`" => "Author_Name",
-		"`books`.`Quantity`" => "Quantity",
-		"if(`books`.`Purchase_Date`,date_format(`books`.`Purchase_Date`,'%m/%d/%Y'),'')" => "Purchase_Date",
-		"`books`.`Edition`" => "Edition",
-		"`books`.`Price`" => "Price",
-		"`books`.`Pages`" => "Pages",
-		"`books`.`Publisher`" => "Publisher"
+		"`books`.`ISBN`" => "ISBN",
+		"`books`.`Titulo_do_Livro`" => "Titulo_do_Livro",
+		"IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') /* Gênero do Livro */" => "Gênero_do_Livro",
+		"`books`.`Autor_do_Livro`" => "Autor_do_Livro",
+		"`books`.`Quantidade`" => "Quantidade",
+		"if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'')" => "Data_de_Aquisição",
+		"`books`.`Edição`" => "Edição",
+		"`books`.`Estante`" => "Estante",
+		"`books`.`Prateleira`" => "Prateleira",
+		"`books`.`Editora`" => "Editora"
 	);
 
 	// Lookup fields that can be used as filterers
-	$x->filterers = array(  'Book_Type' => 'Book Type');
+	$x->filterers = array(  'Gênero_do_Livro' => 'Gênero do Livro');
 
-	$x->QueryFrom = "`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Book_Type` ";
+	$x->QueryFrom = "`books` LEFT JOIN `Types` as Types1 ON `Types1`.`id`=`books`.`Gênero_do_Livro` ";
 	$x->QueryWhere = '';
 	$x->QueryOrder = '';
 
@@ -124,8 +124,8 @@
 	$x->PrimaryKey = "`books`.`id`";
 
 	$x->ColWidth   = array(  150, 150, 150, 150, 150, 150, 150, 80, 150, 150);
-	$x->ColCaption = array("ISBN NO", "Book Title", "Book Type", "Author Name", "Quantity", "Purchase Date", "Edition", "Price", "Pages", "Publisher");
-	$x->ColFieldName = array('ISBN_NO', 'Book_Title', 'Book_Type', 'Author_Name', 'Quantity', 'Purchase_Date', 'Edition', 'Price', 'Pages', 'Publisher');
+	$x->ColCaption = array("ISBN", "Titulo do Livro", "Gênero do Livro", "Autor do Livro", "Quantidade", "Data de Aquisição", "Edição", "Estante", "Prateleira", "Editora");
+	$x->ColFieldName = array('ISBN', 'Titulo_do_Livro', 'Gênero_do_Livro', 'Autor_do_Livro', 'Quantidade', 'Data_de_Aquisição', 'Edição', 'Estante', 'Prateleira', 'Editora');
 	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
 	// template paths below are based on the app main directory
