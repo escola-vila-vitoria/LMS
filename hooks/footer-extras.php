@@ -1,6 +1,7 @@
+<!-- OK -->
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.1.0
+      <b>Versão</b> 1.0
     </div>
-    <strong>Libray Management System &nbsp;Brought To You By <a href="https://code-projects.org/"> Code-Projects</a>.</strong>
+    <strong>&copy; 2020 - José Victor - Todos os Direitos Reservados.</strong>
   </footer>

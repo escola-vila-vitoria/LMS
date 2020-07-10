@@ -14,11 +14,11 @@
 	// ============
 	// When a new version of AppGini is released, new strings
 	// might be added to the "defaultLang.php" file. To translate
-	// them, simply copy them to this file ("language.php") and 
-	// translate them here. Do NOT translate them directly in 
+	// them, simply copy them to this file ("language.php") and
+	// translate them here. Do NOT translate them directly in
 	// the "defaultLang.php" file.
 	// =====================================================
-		
+
 
 
 	// datalist.php
@@ -100,7 +100,7 @@
 
 	// lib.php
 	$Translation['select a table'] = "Jump to ...";
-	$Translation['homepage'] = "Homepage";
+	$Translation['homepage'] = "Página Inicial";
 	$Translation['error:'] = "Error:";
 	$Translation['sql error:'] = "SQL error:";
 	$Translation['query:'] = "Query:";
@@ -228,10 +228,10 @@
 	$Translation['Your profile was updated successfully'] = 'Your profile was updated successfully';
 	$Translation['Your password was changed successfully'] = 'Your password was changed successfully';
 	$Translation['Your IP address'] = 'Your IP address';
-	
+
 	/* Added in AppGini 4.90 */
 	$Translation['Records to display'] = 'Records to display';
-	
+
 	/* Added in AppGini 5.10 */
 	$Translation['Setup Data'] = 'Setup Data';
 	$Translation['Database Information'] = 'Database Information';
@@ -258,14 +258,14 @@
 	$Translation['The following errors occured'] = 'The following errors occured';
 	$Translation['failed to create config instructions'] = 'This is most probably due to folder permissions that are set to prevent creating files by your web server. Don\'t worry! You can still create the config file manually.<br><br>Just paste the following code into a text editor and save the file as "config.php", then upload it using FTP or any other method to the folder %s on your server.';
 	$Translation['Only show records having filterer'] = 'Only show records where %s is %s';
-	
+
 	/* Added in AppGini 5.20 */
 	$Translation['You don\'t have enough permissions to delete this record'] = 'You don\'t have enough permissions to delete this record';
 	$Translation['Couldn\'t delete this record'] = 'Couldn\'t delete this record';
 	$Translation['The record has been deleted successfully'] = 'The record has been deleted successfully';
 	$Translation['Couldn\'t save changes to the record'] = 'Couldn\'t save changes to the record';
 	$Translation['Couldn\'t save the new record'] = 'Couldn\'t save the new record';
-	
+
 	/* Added in AppGini 5.30 */
 	$Translation['More'] = 'More';
 	$Translation['Confirm deleting multiple records'] = 'Confirm deleting multiple records';

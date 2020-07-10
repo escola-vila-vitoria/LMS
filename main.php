@@ -42,13 +42,12 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3><?php include_once('books_count.php');?></h3>
-
-              <p>Books</p>
+              <p>Livros</p>
             </div>
             <div class="icon">
               <i class="fa fa-book"></i>
             </div>
-            <a href="books_view.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="books_view.php" class="small-box-footer">Mais info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -57,13 +56,12 @@
           <div class="small-box bg-green">
             <div class="inner">
               <h3><?php include_once('members_count.php');?></h3>
-
-              <p>Members</p>
+              <p>Alunos</p>
             </div>
             <div class="icon">
               <i class="fa fa-group"></i>
             </div>
-            <a href="Users_view.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="Users_view.php" class="small-box-footer">Mais info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -72,13 +70,12 @@
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3><?php include_once('newspapers_count.php');?></h3>
-
-              <p>NewsPapers</p>
+              <p>Jornais</p>
             </div>
             <div class="icon">
               <i class="fa fa-newspaper-o"></i>
             </div>
-            <a href="NewsPapers_view.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="NewsPapers_view.php" class="small-box-footer">Mais info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -87,13 +84,12 @@
           <div class="small-box bg-red">
             <div class="inner">
               <h3><?php include_once('magazines_count.php');?></h3>
-
-              <p>Magazines</p>
+              <p>Revistas</p>
             </div>
             <div class="icon">
               <i class="fa  fa-file-word-o"></i>
             </div>
-            <a href="Magazines_view.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="Magazines_view.php" class="small-box-footer">Mais info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -105,59 +101,42 @@
             <span class="info-box-icon bg-aqua"><i class="fa  fa-space-shuttle"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Issued</span>
+              <span class="info-box-text">Emprestados</span>
               <span class="info-box-number"><?php include_once('issue_count.php');?></span>
             </div>
-            <!-- /.info-box-content -->
           </div>
-          <!-- /.info-box -->
         </div>
-        <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-thumbs-up"></i></span>
-
+            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-up"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text">Returned</span>
+              <span class="info-box-text">Retornados</span>
               <span class="info-box-number"><?php include_once('returned_count.php');?></span>
             </div>
-            <!-- /.info-box-content -->
           </div>
-          <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-
-        <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
+        	<div class="col-md-3 col-sm-6 col-xs-12">
+          	<div class="info-box">
+            	<span class="info-box-icon bg-red"><i class="fa fa-thumbs-down"></i></span>
 
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-thumbs-down"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Not Returned</span>
-              <span class="info-box-number"><?php include_once('not_returned.php');?></span>
-            </div>
-            <!-- /.info-box-content -->
+            	<div class="info-box-content">
+              	<span class="info-box-text">Não Retornados</span>
+              	<span class="info-box-number"><?php include_once('not_returned.php');?></span>
+            	</div>
           </div>
-          <!-- /.info-box -->
         </div>
-        <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-yellow"><i class="fa fa-calendar-check-o"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Date Today</span>
-              <span class="info-box-number"><?php $today= date("m/d/Y"); echo $today; ?></span>
+              <span class="info-box-text">Data de Hoje</span>
+              <span class="info-box-number"><?php $today= date("d/m/Y"); echo $today; ?></span>
             </div>
-            <!-- /.info-box-content -->
           </div>
-          <!-- /.info-box -->
         </div>
-        <!-- /.col -->
-      </div><!--/second set-->
-      <!--widgets end here-->
+      </div>
       <?php include_once('home.php'); ?>
 	</div>
 </div>

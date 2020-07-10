@@ -92,7 +92,7 @@
 
 	// lib.php
 	$Translation['select a table'] = "Jump to ...";
-	$Translation['homepage'] = "Homepage";
+	$Translation['homepage'] = "Página Inicial";
 	$Translation['error:'] = "Error:";
 	$Translation['sql error:'] = "SQL error:";
 	$Translation['query:'] = "Query:";
@@ -299,4 +299,3 @@
 	$Translation['hide/show columns'] = 'Hide/Show columns';
 	$Translation['next column'] = 'Next column';
 	$Translation['previous column'] = 'Previous column';
-
