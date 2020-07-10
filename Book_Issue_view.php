@@ -21,7 +21,7 @@
 	$x->TableName = "Book_Issue";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
@@ -33,7 +33,7 @@
 		"`Book_Issue`.`Status`" => "Status"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`Book_Issue`.`id`',
 		2 => 2,
 		3 => '`Users1`.`Name`',
@@ -46,7 +46,7 @@
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
@@ -58,7 +58,7 @@
 		"`Book_Issue`.`Status`" => "Status"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`Book_Issue`.`id`" => "ID",
 		"`Book_Issue`.`issue_id`" => "Issue id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
@@ -71,7 +71,7 @@
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`Book_Issue`.`id`" => "id",
 		"`Book_Issue`.`issue_id`" => "issue_id",
 		"IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') /* Member */" => "Member",
@@ -109,7 +109,7 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "Book_Issue_view.php";
 	$x->RedirectAfterInsert = "Book_Issue_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Issued";
+	$x->TableTitle = "Emprestados";
 	$x->TableIcon = "resources/table_icons/application_from_storage.png";
 	$x->PrimaryKey = "`Book_Issue`.`id`";
 
@@ -161,9 +161,9 @@
 	if(function_exists('Book_Issue_header')){
 		$args=array();
 		$headerCode=Book_Issue_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -175,9 +175,9 @@
 	if(function_exists('Book_Issue_footer')){
 		$args=array();
 		$footerCode=Book_Issue_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

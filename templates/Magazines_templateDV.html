@@ -1,4 +1,4 @@
-<!-- Edit this file to change the layout of the detail view form -->
+<!-- OK -->
 
 <a name="detail-view"></a>
 <div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
@@ -27,49 +27,33 @@
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="Type" class="control-label col-lg-3">Type</label>
+					<label for="Gênero_da_Revista" class="control-label col-lg-3">Gênero da Revista</label>
 					<div class="col-lg-9">
-						<input maxlength="40" type="text" class="form-control" name="Type" id="Type" value="<%%VALUE(Type)%%>">
+						<input maxlength="40" type="text" class="form-control" name="Gênero_da_Revista" id="Gênero_da_Revista" value="<%%VALUE(Gênero_da_Revista)%%>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="Name" class="control-label col-lg-3">Name</label>
+					<label for="Nome_da_Revista" class="control-label col-lg-3">Nome da Revista</label>
 					<div class="col-lg-9">
-						<input maxlength="100" type="text" class="form-control" name="Name" id="Name" value="<%%VALUE(Name)%%>">
+						<input maxlength="100" type="text" class="form-control" name="Nome_da_Revista" id="Nome_da_Revista" value="<%%VALUE(Nome_da_Revista)%%>">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="Date_Of_Receipt" class="control-label col-lg-3">Date Of Receipt</label>
+					<label for="Data_de_Publicação" class="control-label col-lg-3">Data de Publicação</label>
 					<div class="col-lg-9">
-						<%%COMBO(Date_Of_Receipt)%%>
+						<%%COMBO(Data_de_Publicação)%%>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<hr class="hidden-md hidden-lg">
-					<label for="Date_Published" class="control-label col-lg-3">Date Published</label>
+					<label for="Data_de_Recebimento" class="control-label col-lg-3">Data de Recebimento</label>
 					<div class="col-lg-9">
-						<%%COMBO(Date_Published)%%>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<hr class="hidden-md hidden-lg">
-					<label for="Prateleira" class="control-label col-lg-3">Prateleira</label>
-					<div class="col-lg-9">
-						<input maxlength="" type="text" class="form-control" name="Prateleira" id="Prateleira" value="<%%VALUE(Prateleira)%%>">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<hr class="hidden-md hidden-lg">
-					<label for="Estante" class="control-label col-lg-3">Estante</label>
-					<div class="col-lg-9">
-						<input maxlength="13" type="text" class="form-control" name="Estante" id="Estante" value="<%%VALUE(Estante)%%>">
+						<%%COMBO(Data_de_Recebimento)%%>
 					</div>
 				</div>
 
@@ -197,8 +181,6 @@
 				}
 			});
 
-
-			/* load admin tools for admin user */
 			if(!add_new_mode){
 				$j('body').append('<div id="admin-tools-appendix"></div>');
 				$j('#admin-tools-appendix').load(
@@ -210,7 +192,6 @@
 				);
 			}
 
-			/* warn user if 'add new' clicked while unsaved changes exist */
 			$j('#addNew').click(function(){
 				if($j('#deselect.btn-warning').length){
 					return confirm('<%%TRANSLATION(discard changes confirm)%%>');

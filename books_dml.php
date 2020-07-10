@@ -216,7 +216,7 @@ function books_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $Allo
 	$combo_Gênero_do_Livro = new DataCombo;
 	// combobox: Data_de_Aquisição
 	$combo_Data_de_Aquisição = new DateCombo;
-	$combo_Data_de_Aquisição->DateFormat = "mdy";
+	$combo_Data_de_Aquisição->DateFormat = "dmy";
 	$combo_Data_de_Aquisição->MinYear = 1900;
 	$combo_Data_de_Aquisição->MaxYear = 2100;
 	$combo_Data_de_Aquisição->DefaultDate = parseMySQLDate('1', '1');

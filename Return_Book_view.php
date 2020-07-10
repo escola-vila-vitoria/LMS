@@ -21,7 +21,7 @@
 	$x->TableName = "Return_Book";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`Return_Book`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -34,7 +34,7 @@
 		"`Return_Book`.`Status`" => "Status"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`Return_Book`.`id`',
 		2 => 2,
 		3 => 3,
@@ -48,7 +48,7 @@
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`Return_Book`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -61,7 +61,7 @@
 		"`Return_Book`.`Status`" => "Status"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`Return_Book`.`id`" => "ID",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo do Livro",
@@ -75,7 +75,7 @@
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`Return_Book`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -114,7 +114,7 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "Return_Book_view.php";
 	$x->RedirectAfterInsert = "Return_Book_view.php?SelectedID=#ID#";
-	$x->TableTitle = "Returned";
+	$x->TableTitle = "Retornados";
 	$x->TableIcon = "resources/table_icons/application_side_expand.png";
 	$x->PrimaryKey = "`Return_Book`.`id`";
 
@@ -166,9 +166,9 @@
 	if(function_exists('Return_Book_header')){
 		$args=array();
 		$headerCode=Return_Book_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -180,9 +180,9 @@
 	if(function_exists('Return_Book_footer')){
 		$args=array();
 		$footerCode=Return_Book_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

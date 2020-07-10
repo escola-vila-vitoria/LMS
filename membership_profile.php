@@ -1,3 +1,4 @@
+<!-- OK -->
 <?php
 	$currDir=dirname(__FILE__);
 	include("$currDir/defaultLang.php");
@@ -6,7 +7,6 @@
 
 	$adminConfig = config('adminConfig');
 
-	/* no access for guests */
 	$mi = getMemberInfo();
 	if(!$mi['username'] || $mi['group'] == $adminConfig['anonymousGroup']){
 		@header('Location: index.php'); exit;
@@ -143,7 +143,6 @@
 		</div>
 
 		<div class="col-md-6">
-
 			<?php if($mi['username'] != $adminConfig['adminUsername']){ ?>
 				<!-- change password -->
 				<div class="panel panel-info">

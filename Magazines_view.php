@@ -24,11 +24,9 @@
 	$x->QueryFieldsTV = array(
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
-		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Prateleira`" => "Prateleira",
-		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Nome_da_Revista`" => "Nome_da_Revista",
+		"if(`Magazines`.`Data_de_Publicação`,date_format(`Magazines`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`Magazines`.`Data_de_Recebimento`,date_format(`Magazines`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`Magazines`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
@@ -36,33 +34,27 @@
 		1 => '`Magazines`.`id`',
 		2 => 2,
 		3 => 3,
-		4 => '`Magazines`.`Date_Of_Receipt`',
-		5 => '`Magazines`.`Date_Published`',
-		6 => '`Magazines`.`Prateleira`',
-		7 => '`Magazines`.`Estante`',
-		8 => 8
+		4 => '`Magazines`.`Data_de_Publicação`',
+		5 => '`Magazines`.`Data_de_Recebimento`',
+		6 => 6
 	);
 
 	// Fields that can be displayed in the csv file
 	$x->QueryFieldsCSV = array(
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
-		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Prateleira`" => "Prateleira",
-		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Nome_da_Revista`" => "Nome_da_Revista",
+		"if(`Magazines`.`Data_de_Publicação`,date_format(`Magazines`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`Magazines`.`Data_de_Recebimento`,date_format(`Magazines`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`Magazines`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
 	$x->QueryFieldsFilters = array(
 		"`Magazines`.`id`" => "ID",
 		"`Magazines`.`Gênero_da_Revista`" => "Gênero da Revista",
-		"`Magazines`.`Name`" => "Name",
-		"`Magazines`.`Date_Of_Receipt`" => "Date Of Receipt",
-		"`Magazines`.`Date_Published`" => "Date Published",
-		"`Magazines`.`Prateleira`" => "Prateleira",
-		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Nome_da_Revista`" => "Nome da Revista",
+		"`Magazines`.`Data_de_Publicação`" => "Data de Publicação",
+		"`Magazines`.`Data_de_Recebimento`" => "Data de Recebimento",
 		"`Magazines`.`Editora`" => "Editora"
 	);
 
@@ -70,11 +62,9 @@
 	$x->QueryFieldsQS = array(
 		"`Magazines`.`id`" => "id",
 		"`Magazines`.`Gênero_da_Revista`" => "Gênero_da_Revista",
-		"`Magazines`.`Name`" => "Name",
-		"if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`Magazines`.`Prateleira`" => "Prateleira",
-		"`Magazines`.`Estante`" => "Estante",
+		"`Magazines`.`Nome_da_Revista`" => "Nome_da_Revista",
+		"if(`Magazines`.`Data_de_Publicação`,date_format(`Magazines`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`Magazines`.`Data_de_Recebimento`,date_format(`Magazines`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`Magazines`.`Editora`" => "Editora"
 	);
 
@@ -108,10 +98,10 @@
 	$x->TableIcon = "resources/table_icons/blogs.png";
 	$x->PrimaryKey = "`Magazines`.`id`";
 
-	$x->ColWidth   = array(150, 150, 150, 150, 150, 80, 150);
-	$x->ColCaption = array("Gênero da Revista", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Editora");
-	$x->ColFieldName = array('Gênero_da_Revista', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Editora');
-	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8);
+	$x->ColWidth   = array(150, 150, 150, 150, 150);
+	$x->ColCaption = array("Gênero da Revista", "Nome da Revista", "Data de Publicação", "Data de Recebimento",  "Editora");
+	$x->ColFieldName = array('Gênero_da_Revista', 'Nome_da_Revista', 'Data_de_Publicação', 'Data_de_Recebimento', 'Editora');
+	$x->ColNumber  = array(2, 3, 4, 5, 6);
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/Magazines_templateTV.html';

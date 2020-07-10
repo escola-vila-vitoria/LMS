@@ -21,7 +21,7 @@
 	$x->TableName = "Return";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`Return`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -34,7 +34,7 @@
 		"`Return`.`Status`" => "Status"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`Return`.`id`',
 		2 => 2,
 		3 => 3,
@@ -48,7 +48,7 @@
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`Return`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -61,7 +61,7 @@
 		"`Return`.`Status`" => "Status"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`Return`.`id`" => "ID",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo do Livro",
@@ -75,7 +75,7 @@
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`Return`.`id`" => "id",
 		"IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') /* Book Number */" => "Book_Number",
 		"IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') /* Titulo do Livro */" => "Titulo_do_Livro",
@@ -166,9 +166,9 @@
 	if(function_exists('Return_header')){
 		$args=array();
 		$headerCode=Return_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -180,9 +180,9 @@
 	if(function_exists('Return_footer')){
 		$args=array();
 		$footerCode=Return_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

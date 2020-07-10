@@ -21,65 +21,46 @@
 	$x->TableName = "NewsPapers";
 
 	// Fields that can be displayed in the table view
-	$x->QueryFieldsTV = array(   
+	$x->QueryFieldsTV = array(
 		"`NewsPapers`.`id`" => "id",
-		"`NewsPapers`.`Language`" => "Language",
-		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Prateleira`" => "Prateleira",
-		"`NewsPapers`.`Estante`" => "Estante",
-		"`NewsPapers`.`Type`" => "Type",
+		"`NewsPapers`.`Nome_do_Jornal`" => "Nome_do_Jornal",
+		"if(`NewsPapers`.`Data_de_Publicação`,date_format(`NewsPapers`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`NewsPapers`.`Data_de_Recebimento`,date_format(`NewsPapers`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`NewsPapers`.`Editora`" => "Editora"
 	);
 	// mapping incoming sort by requests to actual query fields
-	$x->SortFields = array(   
+	$x->SortFields = array(
 		1 => '`NewsPapers`.`id`',
 		2 => 2,
 		3 => 3,
-		4 => '`NewsPapers`.`Date_Of_Receipt`',
-		5 => '`NewsPapers`.`Date_Published`',
-		6 => '`NewsPapers`.`Prateleira`',
-		7 => '`NewsPapers`.`Estante`',
-		8 => 8,
-		9 => 9
+		4 => '`NewsPapers`.`Data_de_Publicação`',
+		5 => '`NewsPapers`.`Data_de_Recebimento`',
+		6 => 6
 	);
 
 	// Fields that can be displayed in the csv file
-	$x->QueryFieldsCSV = array(   
+	$x->QueryFieldsCSV = array(
 		"`NewsPapers`.`id`" => "id",
-		"`NewsPapers`.`Language`" => "Language",
-		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Prateleira`" => "Prateleira",
-		"`NewsPapers`.`Estante`" => "Estante",
-		"`NewsPapers`.`Type`" => "Type",
+		"`NewsPapers`.`Nome_do_Jornal`" => "Nome_do_Jornal",
+		"if(`NewsPapers`.`Data_de_Publicação`,date_format(`NewsPapers`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`NewsPapers`.`Data_de_Recebimento`,date_format(`NewsPapers`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`NewsPapers`.`Editora`" => "Editora"
 	);
 	// Fields that can be filtered
-	$x->QueryFieldsFilters = array(   
+	$x->QueryFieldsFilters = array(
 		"`NewsPapers`.`id`" => "ID",
-		"`NewsPapers`.`Language`" => "Language",
-		"`NewsPapers`.`Name`" => "Name",
-		"`NewsPapers`.`Date_Of_Receipt`" => "Date Of Receipt",
-		"`NewsPapers`.`Date_Published`" => "Date Published",
-		"`NewsPapers`.`Prateleira`" => "Prateleira",
-		"`NewsPapers`.`Estante`" => "Estante",
-		"`NewsPapers`.`Type`" => "Type",
+		"`NewsPapers`.`Nome_do_Jornal`" => "Nome do Jornal",
+		"`NewsPapers`.`Data_de_Publicação`" => "Data de Publicação",
+		"`NewsPapers`.`Data_de_Recebimento`" => "Data de Recebimento",
 		"`NewsPapers`.`Editora`" => "Editora"
 	);
 
 	// Fields that can be quick searched
-	$x->QueryFieldsQS = array(   
+	$x->QueryFieldsQS = array(
 		"`NewsPapers`.`id`" => "id",
-		"`NewsPapers`.`Language`" => "Language",
-		"`NewsPapers`.`Name`" => "Name",
-		"if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'')" => "Date_Of_Receipt",
-		"if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'')" => "Date_Published",
-		"`NewsPapers`.`Prateleira`" => "Prateleira",
-		"`NewsPapers`.`Estante`" => "Estante",
-		"`NewsPapers`.`Type`" => "Type",
+		"`NewsPapers`.`Nome_do_Jornal`" => "Nome_do_Jornal",
+		"if(`NewsPapers`.`Data_de_Publicação`,date_format(`NewsPapers`.`Data_de_Publicação`,'%d/%m/%Y'),'')" => "Data_de_Publicação",
+		"if(`NewsPapers`.`Data_de_Recebimento`,date_format(`NewsPapers`.`Data_de_Recebimento`,'%d/%m/%Y'),'')" => "Data_de_Recebimento",
 		"`NewsPapers`.`Editora`" => "Editora"
 	);
 
@@ -109,14 +90,14 @@
 	$x->QuickSearchText = $Translation["quick search"];
 	$x->ScriptFileName = "NewsPapers_view.php";
 	$x->RedirectAfterInsert = "NewsPapers_view.php?SelectedID=#ID#";
-	$x->TableTitle = "NewsPapers";
+	$x->TableTitle = "Jornais";
 	$x->TableIcon = "resources/table_icons/curriculum_vitae.png";
 	$x->PrimaryKey = "`NewsPapers`.`id`";
 
-	$x->ColWidth   = array(  150, 150, 150, 150, 150, 80, 150, 150);
-	$x->ColCaption = array("Language", "Name", "Date Of Receipt", "Date Published", "Prateleira", "Estante", "Type", "Editora");
-	$x->ColFieldName = array('Language', 'Name', 'Date_Of_Receipt', 'Date_Published', 'Prateleira', 'Estante', 'Type', 'Editora');
-	$x->ColNumber  = array(2, 3, 4, 5, 6, 7, 8, 9);
+	$x->ColWidth   = array(150, 150, 150, 150);
+	$x->ColCaption = array("Nome do Jornal", "Data de Publicação", "Data de Recebimento", "Editora");
+	$x->ColFieldName = array('Nome_do_Jornal', 'Data_de_Publicação', 'Data_de_Recebimento','Editora');
+	$x->ColNumber  = array(2, 3, 4, 5);
 
 	// template paths below are based on the app main directory
 	$x->Template = 'templates/NewsPapers_templateTV.html';
@@ -161,9 +142,9 @@
 	if(function_exists('NewsPapers_header')){
 		$args=array();
 		$headerCode=NewsPapers_header($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$headerCode){
-		include_once("$currDir/header.php"); 
+		include_once("$currDir/header.php");
 	}else{
 		ob_start(); include_once("$currDir/header.php"); $dHeader=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%HEADER%%>', $dHeader, $headerCode);
@@ -175,9 +156,9 @@
 	if(function_exists('NewsPapers_footer')){
 		$args=array();
 		$footerCode=NewsPapers_footer($x->ContentType, getMemberInfo(), $args);
-	}  
+	}
 	if(!$footerCode){
-		include_once("$currDir/footer.php"); 
+		include_once("$currDir/footer.php");
 	}else{
 		ob_start(); include_once("$currDir/footer.php"); $dFooter=ob_get_contents(); ob_end_clean();
 		echo str_replace('<%%FOOTER%%>', $dFooter, $footerCode);

@@ -16,19 +16,18 @@ function Magazines_insert(){
 
 	$data['Gênero_da_Revista'] = makeSafe($_REQUEST['Gênero_da_Revista']);
 		if($data['Gênero_da_Revista'] == empty_lookup_value){ $data['Gênero_da_Revista'] = ''; }
-	$data['Name'] = makeSafe($_REQUEST['Name']);
-		if($data['Name'] == empty_lookup_value){ $data['Name'] = ''; }
-	$data['Date_Of_Receipt'] = intval($_REQUEST['Date_Of_ReceiptYear']) . '-' . intval($_REQUEST['Date_Of_ReceiptMonth']) . '-' . intval($_REQUEST['Date_Of_ReceiptDay']);
-	$data['Date_Of_Receipt'] = parseMySQLDate($data['Date_Of_Receipt'], '');
-	$data['Date_Published'] = intval($_REQUEST['Date_PublishedYear']) . '-' . intval($_REQUEST['Date_PublishedMonth']) . '-' . intval($_REQUEST['Date_PublishedDay']);
-	$data['Date_Published'] = parseMySQLDate($data['Date_Published'], '');
-	$data['Prateleira'] = makeSafe($_REQUEST['Prateleira']);
-		if($data['Prateleira'] == empty_lookup_value){ $data['Prateleira'] = ''; }
-	$data['Estante'] = makeSafe($_REQUEST['Estante']);
-		if($data['Estante'] == empty_lookup_value){ $data['Estante'] = ''; }
+
+	$data['Nome_da_Revista'] = makeSafe($_REQUEST['Nome_da_Revista']);
+		if($data['Nome_da_Revista'] == empty_lookup_value){ $data['Nome_da_Revista'] = ''; }
+
+	$data['Data_de_Publicação'] = intval($_REQUEST['Data_de_PublicaçãotDay']) . '-' . intval($_REQUEST['Data_de_PublicaçãoMonth']) . '-' . intval($_REQUEST['Data_de_PublicaçãoYear']);
+	$data['Data_de_Publicação'] = parseMySQLDate($data['Data_de_Publicação'], '');
+
+	$data['Data_de_Recebimento'] = intval($_REQUEST['Data_de_RecebimentoDay']) . '-' . intval($_REQUEST['Data_de_RecebimentoMonth']) . '-' . intval($_REQUEST['Data_de_RecebimentoYear']);
+	$data['Data_de_Recebimento'] = parseMySQLDate($data['Data_de_Recebimento'], '');
+
 	$data['Editora'] = makeSafe($_REQUEST['Editora']);
 		if($data['Editora'] == empty_lookup_value){ $data['Editora'] = ''; }
-	if($data['Estante'] == '') $data['Estante'] = "0.00";
 
 	// hook: Magazines_before_insert
 	if(function_exists('Magazines_before_insert')){
@@ -40,7 +39,11 @@ function Magazines_insert(){
 	sql('insert into `Magazines` set
 
 	`Gênero_da_Revista`=' . (($data['Gênero_da_Revista'] !== '' && $data['Gênero_da_Revista'] !== NULL) ? "'{$data['Gênero_da_Revista']}'" : 'NULL') . ',
-	`Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL'), $o);
+	`Nome_da_Revista`=' . (($data['Nome_da_Revista'] !== '' && $data['Nome_da_Revista'] !== NULL) ? "'{$data['Nome_da_Revista']}'" : 'NULL') . ',
+	`Data_de_Publicação`=' . (($data['Data_de_Publicação'] !== '' && $data['Data_de_Publicação'] !== NULL) ? "'{$data['Data_de_Publicação']}'" : 'NULL') . ',
+	`Data_de_Recebimento`=' . (($data['Data_de_Recebimento'] !== '' && $data['Data_de_Recebimento'] !== NULL) ? "'{$data['Data_de_Recebimento']}'" : 'NULL') . ',
+	`Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL'), $o);
+
 	if($o['error']!=''){
 		echo $o['error'];
 		echo "<a href=\"Magazines_view.php?addNew_x=1\">{$Translation['< back']}</a>";
@@ -113,18 +116,18 @@ function Magazines_update($selected_id){
 		return false;
 	}
 
-	$data['Type'] = makeSafe($_REQUEST['Type']);
-		if($data['Type'] == empty_lookup_value){ $data['Type'] = ''; }
-	$data['Name'] = makeSafe($_REQUEST['Name']);
-		if($data['Name'] == empty_lookup_value){ $data['Name'] = ''; }
-	$data['Date_Of_Receipt'] = intval($_REQUEST['Date_Of_ReceiptYear']) . '-' . intval($_REQUEST['Date_Of_ReceiptMonth']) . '-' . intval($_REQUEST['Date_Of_ReceiptDay']);
-	$data['Date_Of_Receipt'] = parseMySQLDate($data['Date_Of_Receipt'], '');
-	$data['Date_Published'] = intval($_REQUEST['Date_PublishedYear']) . '-' . intval($_REQUEST['Date_PublishedMonth']) . '-' . intval($_REQUEST['Date_PublishedDay']);
-	$data['Date_Published'] = parseMySQLDate($data['Date_Published'], '');
-	$data['Prateleira'] = makeSafe($_REQUEST['Prateleira']);
-		if($data['Prateleira'] == empty_lookup_value){ $data['Prateleira'] = ''; }
-	$data['Estante'] = makeSafe($_REQUEST['Estante']);
-		if($data['Estante'] == empty_lookup_value){ $data['Estante'] = ''; }
+	$data['Gênero_da_Revista'] = makeSafe($_REQUEST['Gênero_da_Revista']);
+		if($data['Gênero_da_Revista'] == empty_lookup_value){ $data['Gênero_da_Revista'] = ''; }
+
+	$data['Nome_da_Revista'] = makeSafe($_REQUEST['Nome_da_Revista']);
+		if($data['Nome_da_Revista'] == empty_lookup_value){ $data['Nome_da_Revista'] = ''; }
+
+	$data['Data_de_Publicação'] = intval($_REQUEST['Data_de_PublicaçãoDay']) . '-' . intval($_REQUEST['Data_de_PublicaçãoMonth']) . '-' . intval($_REQUEST['Data_de_PublicaçãoYear']);
+	$data['Data_de_Publicação'] = parseMySQLDate($data['Data_de_Publicação'], '');
+
+	$data['Data_de_Recebimento'] = intval($_REQUEST['Data_de_RecebimentoDay']) . '-' . intval($_REQUEST['Data_de_RecebimentoMonth']) . '-' . intval($_REQUEST['Data_de_RecebimentoYear']);
+	$data['Data_de_Recebimento'] = parseMySQLDate($data['Data_de_Recebimento'], '');
+
 	$data['Editora'] = makeSafe($_REQUEST['Editora']);
 		if($data['Editora'] == empty_lookup_value){ $data['Editora'] = ''; }
 	$data['selectedID']=makeSafe($selected_id);
@@ -136,15 +139,20 @@ function Magazines_update($selected_id){
 	}
 
 	$o=array('silentErrors' => true);
-	sql('update `Magazines` set       `Type`=' . (($data['Type'] !== '' && $data['Type'] !== NULL) ? "'{$data['Type']}'" : 'NULL') . ', `Name`=' . (($data['Name'] !== '' && $data['Name'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ', `Date_Of_Receipt`=' . (($data['Date_Of_Receipt'] !== '' && $data['Date_Of_Receipt'] !== NULL) ? "'{$data['Date_Of_Receipt']}'" : 'NULL') . ', `Date_Published`=' . (($data['Date_Published'] !== '' && $data['Date_Published'] !== NULL) ? "'{$data['Date_Published']}'" : 'NULL') . ', `Prateleira`=' . (($data['Prateleira'] !== '' && $data['Prateleira'] !== NULL) ? "'{$data['Prateleira']}'" : 'NULL') . ', `Estante`=' . (($data['Estante'] !== '' && $data['Estante'] !== NULL) ? "'{$data['Estante']}'" : 'NULL') . ', `Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+	sql('update `Magazines` set
+
+	`Gênero_da_Revista`=' . (($data['Gênero_da_Revista'] !== '' && $data['Gênero_da_Revista'] !== NULL) ? "'{$data['Gênero_da_Revista']}'" : 'NULL') . ',
+	`Nome_da_Revista`=' . (($data['Nome_da_Revista'] !== '' && $data['Nome_da_Revista'] !== NULL) ? "'{$data['Name']}'" : 'NULL') . ',
+	`Data_de_Publicação`=' . (($data['Data_de_Publicação'] !== '' && $data['Data_de_Publicação'] !== NULL) ? "'{$data['Data_de_Publicação']}'" : 'NULL') . ',
+	`Data_de_Recebimento`=' . (($data['Data_de_Recebimento'] !== '' && $data['Data_de_Recebimento'] !== NULL) ? "'{$data['Data_de_Recebimento']}'" : 'NULL') . ',
+	`Editora`=' . (($data['Editora'] !== '' && $data['Editora'] !== NULL) ? "'{$data['Editora']}'" : 'NULL') . " where `id`='".makeSafe($selected_id)."'", $o);
+
 	if($o['error']!=''){
 		echo $o['error'];
 		echo '<a href="Magazines_view.php?SelectedID='.urlencode($selected_id)."\">{$Translation['< back']}</a>";
 		exit;
 	}
 
-
-	// hook: Magazines_after_update
 	if(function_exists('Magazines_after_update')){
 		$res = sql("SELECT * FROM `Magazines` WHERE `id`='{$data['selectedID']}' LIMIT 1", $eo);
 		if($row = db_fetch_assoc($res)){
@@ -183,22 +191,22 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 
 	// unique random identifier
 	$rnd1 = ($dvprint ? rand(1000000, 9999999) : '');
-	// combobox: Date_Of_Receipt
-	$combo_Date_Of_Receipt = new DateCombo;
-	$combo_Date_Of_Receipt->DateFormat = "mdy";
-	$combo_Date_Of_Receipt->MinYear = 1900;
-	$combo_Date_Of_Receipt->MaxYear = 2100;
-	$combo_Date_Of_Receipt->DefaultDate = parseMySQLDate('', '');
-	$combo_Date_Of_Receipt->MonthNames = $Translation['month names'];
-	$combo_Date_Of_Receipt->NamePrefix = 'Date_Of_Receipt';
-	// combobox: Date_Published
-	$combo_Date_Published = new DateCombo;
-	$combo_Date_Published->DateFormat = "mdy";
-	$combo_Date_Published->MinYear = 1900;
-	$combo_Date_Published->MaxYear = 2100;
-	$combo_Date_Published->DefaultDate = parseMySQLDate('', '');
-	$combo_Date_Published->MonthNames = $Translation['month names'];
-	$combo_Date_Published->NamePrefix = 'Date_Published';
+	// combobox: Data_de_Publicação
+	$combo_Data_de_Publicação = new DateCombo;
+	$combo_Data_de_Publicação->DateFormat = "dmy";
+	$combo_Data_de_Publicação->MinYear = 1900;
+	$combo_Data_de_Publicação->MaxYear = 2100;
+	$combo_Data_de_Publicação->DefaultDate = parseMySQLDate('', '');
+	$combo_Data_de_Publicação->MonthNames = $Translation['month names'];
+	$combo_Data_de_Publicação->NamePrefix = 'Data_de_Publicação';
+	// combobox: Data_de_Recebimento
+	$combo_Data_de_Recebimento = new DateCombo;
+	$combo_Data_de_Recebimento->DateFormat = "dmy";
+	$combo_Data_de_Recebimento->MinYear = 1900;
+	$combo_Data_de_Recebimento->MaxYear = 2100;
+	$combo_Data_de_Recebimento->DefaultDate = parseMySQLDate('', '');
+	$combo_Data_de_Recebimento->MonthNames = $Translation['month names'];
+	$combo_Data_de_Recebimento->NamePrefix = 'Data_de_Recebimento';
 
 	if($selected_id){
 		// mm: check member permissions
@@ -229,8 +237,8 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		$urow = $row; /* unsanitized data */
 		$hc = new CI_Input();
 		$row = $hc->xss_clean($row); /* sanitize data */
-		$combo_Date_Of_Receipt->DefaultDate = $row['Date_Of_Receipt'];
-		$combo_Date_Published->DefaultDate = $row['Date_Published'];
+		$combo_Data_de_Publicação->DefaultDate = $row['Data_de_Publicação'];
+		$combo_Data_de_Recebimento->DefaultDate = $row['Data_de_Recebimento'];
 	}else{
 	}
 
@@ -302,14 +310,12 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 
 	// set records to read only if user can't insert new records and can't edit current record
 	if(($selected_id && !$AllowUpdate && !$AllowInsert) || (!$selected_id && !$AllowInsert)){
-		$jsReadOnly .= "\tjQuery('#Type').replaceWith('<div class=\"form-control-static\" id=\"Type\">' + (jQuery('#Type').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Name').replaceWith('<div class=\"form-control-static\" id=\"Name\">' + (jQuery('#Name').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Date_Of_Receipt').prop('readonly', true);\n";
-		$jsReadOnly .= "\tjQuery('#Date_Of_ReceiptDay, #Date_Of_ReceiptMonth, #Date_Of_ReceiptYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\tjQuery('#Date_Published').prop('readonly', true);\n";
-		$jsReadOnly .= "\tjQuery('#Date_PublishedDay, #Date_PublishedMonth, #Date_PublishedYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
-		$jsReadOnly .= "\tjQuery('#Prateleira').replaceWith('<div class=\"form-control-static\" id=\"Prateleira\">' + (jQuery('#Prateleira').val() || '') + '</div>');\n";
-		$jsReadOnly .= "\tjQuery('#Estante').replaceWith('<div class=\"form-control-static\" id=\"Estante\">' + (jQuery('#Estante').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Gênero_da_Revista').replaceWith('<div class=\"form-control-static\" id=\"Gênero_da_Revista\">' + (jQuery('#Gênero_da_Revista').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Nome_da_Revista').replaceWith('<div class=\"form-control-static\" id=\"Nome_da_Revista\">' + (jQuery('#Nome_da_Revista').val() || '') + '</div>');\n";
+		$jsReadOnly .= "\tjQuery('#Data_de_Publicação').prop('readonly', true);\n";
+		$jsReadOnly .= "\tjQuery('#Data_de_PublicaçãoDay, #Data_de_PublicaçãoMonth, #Data_de_PublicaçãoYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
+		$jsReadOnly .= "\tjQuery('#Data_de_Recebimento').prop('readonly', true);\n";
+		$jsReadOnly .= "\tjQuery('#Data_de_RecebimentoDay, #Data_de_RecebimentoMonth, #Data_de_RecebimentoYear').prop('disabled', true).css({ color: '#555', backgroundColor: '#fff' });\n";
 		$jsReadOnly .= "\tjQuery('#Editora').replaceWith('<div class=\"form-control-static\" id=\"Editora\">' + (jQuery('#Editora').val() || '') + '</div>');\n";
 		$jsReadOnly .= "\tjQuery('.select2-container').hide();\n";
 
@@ -320,10 +326,10 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 	}
 
 	// process combos
-	$templateCode = str_replace('<%%COMBO(Date_Of_Receipt)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_Date_Of_Receipt->GetHTML(true) . '</div>' : $combo_Date_Of_Receipt->GetHTML()), $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(Date_Of_Receipt)%%>', $combo_Date_Of_Receipt->GetHTML(true), $templateCode);
-	$templateCode = str_replace('<%%COMBO(Date_Published)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_Date_Published->GetHTML(true) . '</div>' : $combo_Date_Published->GetHTML()), $templateCode);
-	$templateCode = str_replace('<%%COMBOTEXT(Date_Published)%%>', $combo_Date_Published->GetHTML(true), $templateCode);
+	$templateCode = str_replace('<%%COMBO(Data_de_Publicação)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_Data_de_Publicação->GetHTML(true) . '</div>' : $combo_Data_de_Publicação->GetHTML()), $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(Data_de_Publicação)%%>', $combo_Data_de_Publicação->GetHTML(true), $templateCode);
+	$templateCode = str_replace('<%%COMBO(Data_de_Recebimento)%%>', ($selected_id && !$arrPerm[3] ? '<div class="form-control-static">' . $combo_Data_de_Recebimento->GetHTML(true) . '</div>' : $combo_Data_de_Recebimento->GetHTML()), $templateCode);
+	$templateCode = str_replace('<%%COMBOTEXT(Data_de_Recebimento)%%>', $combo_Data_de_Recebimento->GetHTML(true), $templateCode);
 
 	/* lookup fields array: 'lookup field name' => array('parent table name', 'lookup field caption') */
 	$lookup_fields = array();
@@ -343,12 +349,10 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 
 	// process images
 	$templateCode = str_replace('<%%UPLOADFILE(id)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Type)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Name)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Date_Of_Receipt)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Date_Published)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Prateleira)%%>', '', $templateCode);
-	$templateCode = str_replace('<%%UPLOADFILE(Estante)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Gênero_da_Revista)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Nome_da_Revista)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Data_de_Publicação)%%>', '', $templateCode);
+	$templateCode = str_replace('<%%UPLOADFILE(Data_de_Recebimento)%%>', '', $templateCode);
 	$templateCode = str_replace('<%%UPLOADFILE(Editora)%%>', '', $templateCode);
 
 	// process values
@@ -356,40 +360,40 @@ function Magazines_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, $
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', safe_html($urow['id']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(id)%%>', html_attr($row['id']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode($urow['id']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Type)%%>', safe_html($urow['Type']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Type)%%>', html_attr($row['Type']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Type)%%>', urlencode($urow['Type']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', safe_html($urow['Name']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Name)%%>', html_attr($row['Name']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Name)%%>', urlencode($urow['Name']), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Of_Receipt)%%>', @date('d/m/Y', @strtotime(html_attr($row['Date_Of_Receipt']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Of_Receipt)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Date_Of_Receipt'])))), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Published)%%>', @date('d/m/Y', @strtotime(html_attr($row['Date_Published']))), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Published)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Date_Published'])))), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Prateleira)%%>', safe_html($urow['Prateleira']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Prateleira)%%>', html_attr($row['Prateleira']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Prateleira)%%>', urlencode($urow['Prateleira']), $templateCode);
-		if( $dvprint) $templateCode = str_replace('<%%VALUE(Estante)%%>', safe_html($urow['Estante']), $templateCode);
-		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Estante)%%>', html_attr($row['Estante']), $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Estante)%%>', urlencode($urow['Estante']), $templateCode);
+
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Gênero_da_Revista)%%>', safe_html($urow['Gênero_da_Revista']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Gênero_da_Revista)%%>', html_attr($row['Gênero_da_Revista']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Gênero_da_Revista)%%>', urlencode($urow['Gênero_da_Revista']), $templateCode);
+
+		if( $dvprint) $templateCode = str_replace('<%%VALUE(Nome_da_Revista)%%>', safe_html($urow['Nome_da_Revista']), $templateCode);
+		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Nome_da_Revista)%%>', html_attr($row['Nome_da_Revista']), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Nome_da_Revista)%%>', urlencode($urow['Nome_da_Revista']), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Data_de_Publicação)%%>', @date('d/m/Y', @strtotime(html_attr($row['Data_de_Publicação']))), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Data_de_Publicação)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Data_de_Publicação'])))), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Data_de_Recebimento)%%>', @date('d/m/Y', @strtotime(html_attr($row['Data_de_Recebimento']))), $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Data_de_Recebimento)%%>', urlencode(@date('d/m/Y', @strtotime(html_attr($urow['Data_de_Recebimento'])))), $templateCode);
+
 		if( $dvprint) $templateCode = str_replace('<%%VALUE(Editora)%%>', safe_html($urow['Editora']), $templateCode);
 		if(!$dvprint) $templateCode = str_replace('<%%VALUE(Editora)%%>', html_attr($row['Editora']), $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Editora)%%>', urlencode($urow['Editora']), $templateCode);
 	}else{
 		$templateCode = str_replace('<%%VALUE(id)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(id)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Type)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Type)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Name)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Name)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Of_Receipt)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Of_Receipt)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Date_Published)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Date_Published)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Prateleira)%%>', '', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Prateleira)%%>', urlencode(''), $templateCode);
-		$templateCode = str_replace('<%%VALUE(Estante)%%>', '0.00', $templateCode);
-		$templateCode = str_replace('<%%URLVALUE(Estante)%%>', urlencode('0.00'), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Gênero_da_Revista)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Gênero_da_Revista)%%>', urlencode(''), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Nome_da_Revista)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Nome_da_Revista)%%>', urlencode(''), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Data_de_Publicação)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Data_de_Publicação)%%>', urlencode(''), $templateCode);
+
+		$templateCode = str_replace('<%%VALUE(Data_de_Recebimento)%%>', '', $templateCode);
+		$templateCode = str_replace('<%%URLVALUE(Data_de_Recebimento)%%>', urlencode(''), $templateCode);
+		
 		$templateCode = str_replace('<%%VALUE(Editora)%%>', '', $templateCode);
 		$templateCode = str_replace('<%%URLVALUE(Editora)%%>', urlencode(''), $templateCode);
 	}

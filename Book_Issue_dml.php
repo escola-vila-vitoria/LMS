@@ -210,7 +210,7 @@ function Book_Issue_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 	$combo_Book_Number = new DataCombo;
 	// combobox: Issue_Date
 	$combo_Issue_Date = new DateCombo;
-	$combo_Issue_Date->DateFormat = "mdy";
+	$combo_Issue_Date->DateFormat = "dmy";
 	$combo_Issue_Date->MinYear = 1900;
 	$combo_Issue_Date->MaxYear = 2100;
 	$combo_Issue_Date->DefaultDate = parseMySQLDate('1', '1');
@@ -218,7 +218,7 @@ function Book_Issue_form($selected_id = '', $AllowUpdate = 1, $AllowInsert = 1, 
 	$combo_Issue_Date->NamePrefix = 'Issue_Date';
 	// combobox: Return_Date
 	$combo_Return_Date = new DateCombo;
-	$combo_Return_Date->DateFormat = "mdy";
+	$combo_Return_Date->DateFormat = "dmy";
 	$combo_Return_Date->MinYear = 1900;
 	$combo_Return_Date->MaxYear = 2100;
 	$combo_Return_Date->DefaultDate = parseMySQLDate('1', '1');

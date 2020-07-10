@@ -139,8 +139,8 @@
 	function get_sql_fields($table_name){
 		$sql_fields = array(   
 			'books' => "`books`.`id` as 'id', `books`.`ISBN` as 'ISBN', `books`.`Titulo_do_Livro` as 'Titulo_do_Livro', IF(    CHAR_LENGTH(`Types1`.`Name`), CONCAT_WS('',   `Types1`.`Name`), '') as 'Gênero_do_Livro', `books`.`Autor_do_Livro` as 'Autor_do_Livro', `books`.`Quantidade` as 'Quantidade', if(`books`.`Data_de_Aquisição`,date_format(`books`.`Data_de_Aquisição`,'%d/%m/%Y'),'') as 'Data_de_Aquisição', `books`.`Edição` as 'Edição', `books`.`Estante` as 'Estante', `books`.`Prateleira` as 'Prateleira', `books`.`Editora` as 'Editora'",
-			'NewsPapers' => "`NewsPapers`.`id` as 'id', `NewsPapers`.`Language` as 'Language', `NewsPapers`.`Name` as 'Name', if(`NewsPapers`.`Date_Of_Receipt`,date_format(`NewsPapers`.`Date_Of_Receipt`,'%d/%m/%Y'),'') as 'Date_Of_Receipt', if(`NewsPapers`.`Date_Published`,date_format(`NewsPapers`.`Date_Published`,'%d/%m/%Y'),'') as 'Date_Published', `NewsPapers`.`Prateleira` as 'Prateleira', `NewsPapers`.`Estante` as 'Estante', `NewsPapers`.`Type` as 'Type', `NewsPapers`.`Editora` as 'Editora'",
-			'Magazines' => "`Magazines`.`id` as 'id', `Magazines`.`Type` as 'Type', `Magazines`.`Name` as 'Name', if(`Magazines`.`Date_Of_Receipt`,date_format(`Magazines`.`Date_Of_Receipt`,'%d/%m/%Y'),'') as 'Date_Of_Receipt', if(`Magazines`.`Date_Published`,date_format(`Magazines`.`Date_Published`,'%d/%m/%Y'),'') as 'Date_Published', `Magazines`.`Prateleira` as 'Prateleira', `Magazines`.`Estante` as 'Estante', `Magazines`.`Editora` as 'Editora'",
+			'NewsPapers' => "`NewsPapers`.`id` as 'id', `NewsPapers`.`Language` as 'Language', `NewsPapers`.`Name` as 'Name', if(`NewsPapers`.`Data_de_Publicação`,date_format(`NewsPapers`.`Data_de_Publicação`,'%d/%m/%Y'),'') as 'Data_de_Publicação', if(`NewsPapers`.`Data_de_Recebimento`,date_format(`NewsPapers`.`Data_de_Recebimento`,'%d/%m/%Y'),'') as 'Data_de_Recebimento', `NewsPapers`.`Prateleira` as 'Prateleira', `NewsPapers`.`Estante` as 'Estante', `NewsPapers`.`Type` as 'Type', `NewsPapers`.`Editora` as 'Editora'",
+			'Magazines' => "`Magazines`.`id` as 'id', `Magazines`.`Type` as 'Type', `Magazines`.`Name` as 'Name', if(`Magazines`.`Data_de_Publicação`,date_format(`Magazines`.`Data_de_Publicação`,'%d/%m/%Y'),'') as 'Data_de_Publicação', if(`Magazines`.`Data_de_Recebimento`,date_format(`Magazines`.`Data_de_Recebimento`,'%d/%m/%Y'),'') as 'Data_de_Recebimento', `Magazines`.`Prateleira` as 'Prateleira', `Magazines`.`Estante` as 'Estante', `Magazines`.`Editora` as 'Editora'",
 			'Users' => "`Users`.`id` as 'id', `Users`.`RA_do_Aluno` as 'RA_do_Aluno', `Users`.`Name` as 'Name', `Users`.`Contato` as 'Contato', `Users`.`Ano` as 'Ano'",
 			'Book_Issue' => "`Book_Issue`.`id` as 'id', `Book_Issue`.`issue_id` as 'issue_id', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', if(`Book_Issue`.`Issue_Date`,date_format(`Book_Issue`.`Issue_Date`,'%d/%m/%Y'),'') as 'Issue_Date', if(`Book_Issue`.`Return_Date`,date_format(`Book_Issue`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', `Book_Issue`.`Status` as 'Status'",
 			'Return_Book' => "`Return_Book`.`id` as 'id', IF(    CHAR_LENGTH(`books1`.`ISBN`), CONCAT_WS('',   `books1`.`ISBN`), '') as 'Book_Number', IF(    CHAR_LENGTH(`books1`.`Titulo_do_Livro`), CONCAT_WS('',   `books1`.`Titulo_do_Livro`), '') as 'Titulo_do_Livro', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Issue_Date`,date_format(`Book_Issue1`.`Issue_Date`,'%d/%m/%Y'),'')), '') as 'Issue_Date', IF(    CHAR_LENGTH(if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), CONCAT_WS('',   if(`Book_Issue1`.`Return_Date`,date_format(`Book_Issue1`.`Return_Date`,'%d/%m/%Y'),'')), '') as 'Due_Date', if(`Return_Book`.`Return_Date`,date_format(`Return_Book`.`Return_Date`,'%d/%m/%Y'),'') as 'Return_Date', IF(    CHAR_LENGTH(`Users1`.`Name`), CONCAT_WS('',   `Users1`.`Name`), '') as 'Member', IF(    CHAR_LENGTH(`Users1`.`RA_do_Aluno`), CONCAT_WS('',   `Users1`.`RA_do_Aluno`), '') as 'Number', `Return_Book`.`Fine` as 'Fine', `Return_Book`.`Status` as 'Status'",
@@ -239,8 +239,8 @@
 				'id' => '',
 				'Language' => '',
 				'Name' => '',
-				'Date_Of_Receipt' => '',
-				'Date_Published' => '',
+				'Data_de_Publicação' => '',
+				'Data_de_Recebimento' => '',
 				'Prateleira' => '',
 				'Estante' => '0.00',
 				'Type' => '',
@@ -250,8 +250,8 @@
 				'id' => '',
 				'Type' => '',
 				'Name' => '',
-				'Date_Of_Receipt' => '',
-				'Date_Published' => '',
+				'Data_de_Publicação' => '',
+				'Data_de_Recebimento' => '',
 				'Prateleira' => '',
 				'Estante' => '0.00',
 				'Editora' => ''

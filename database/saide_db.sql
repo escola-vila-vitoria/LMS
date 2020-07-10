@@ -87,8 +87,8 @@ CREATE TABLE `magazines` (
   `id` int(10) UNSIGNED NOT NULL,
   `Type` varchar(40) DEFAULT NULL,
   `Name` varchar(100) DEFAULT NULL,
-  `Date_Of_Receipt` date DEFAULT NULL,
-  `Date_Published` date DEFAULT NULL,
+  `Data_de_Publicação` date DEFAULT NULL,
+  `Data_de_Recebimento` date DEFAULT NULL,
   `Prateleira` int(11) DEFAULT NULL,
   `Estante` decimal(10,2) DEFAULT '0.00',
   `Editora` varchar(140) DEFAULT NULL
@@ -246,8 +246,8 @@ CREATE TABLE `newspapers` (
   `id` int(10) UNSIGNED NOT NULL,
   `Language` varchar(40) DEFAULT NULL,
   `Name` varchar(100) DEFAULT NULL,
-  `Date_Of_Receipt` date DEFAULT NULL,
-  `Date_Published` date DEFAULT NULL,
+  `Data_de_Publicação` date DEFAULT NULL,
+  `Data_de_Recebimento` date DEFAULT NULL,
   `Prateleira` int(11) DEFAULT NULL,
   `Estante` decimal(10,2) DEFAULT '0.00',
   `Type` varchar(40) DEFAULT NULL,
@@ -258,7 +258,7 @@ CREATE TABLE `newspapers` (
 -- Dumping data for table `newspapers`
 --
 
-INSERT INTO `newspapers` (`id`, `Language`, `Name`, `Date_Of_Receipt`, `Date_Published`, `Prateleira`, `Estante`, `Type`, `Editora`) VALUES
+INSERT INTO `newspapers` (`id`, `Language`, `Name`, `Data_de_Publicação`, `Data_de_Recebimento`, `Prateleira`, `Estante`, `Type`, `Editora`) VALUES
 (1, 'English', 'The Standard', '2018-02-24', '2018-02-24', 35, '100.00', 'newspaper', 'Standard Group Media');
 
 -- --------------------------------------------------------
